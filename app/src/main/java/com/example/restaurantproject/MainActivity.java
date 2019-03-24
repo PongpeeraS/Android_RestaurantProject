@@ -1,5 +1,4 @@
 package com.example.restaurantproject;
-
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,15 +9,9 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth auth;
-    private Button btnLogOut;
-    private Button btnFmenu;
-    private Button btnReserve;
-    private Button btnHistory;
-    private Button btnCoupon;
-    private Button btnPrefs;
+    private Button btnLogOut, btnFmenu, btnReserve, btnHistory, btnCoupon, btnPrefs;
     private TextView textUsername;
     private ImageView userPic;
 
@@ -37,12 +30,8 @@ public class MainActivity extends AppCompatActivity {
         btnLogOut = findViewById(R.id.logoutButton);
 
         auth = FirebaseAuth.getInstance();
-        //Check whether a login session already exists. If not, then redirect to login screen.
-        if(auth.getCurrentUser() == null){
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
-        }
         textUsername.setText(auth.getCurrentUser().getDisplayName()); //get username to display here
-        userPic.setImageURI(auth.getCurrentUser().getPhotoUrl()); //HOW TO GET USER PROFILE PICS?
+        //userPic.setImageURI(auth.getCurrentUser().getPhotoUrl()); //HOW TO GET USER PROFILE PICS?
 
         //Preferences button: press to see the app's settings.
         btnPrefs.setOnClickListener(new View.OnClickListener() {

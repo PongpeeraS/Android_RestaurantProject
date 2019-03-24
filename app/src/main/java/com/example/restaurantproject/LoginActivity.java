@@ -13,21 +13,34 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
-    private Button btnSignup, btnLogin, btnReset;
+    private Button btnSignup, btnLogin;
     private EditText inputEmail, inputPassword;
     private FirebaseAuth auth;
+    FirebaseAuth.AuthStateListener mAuthListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        inputEmail = (EditText) findViewById(R.id.email2);
-        inputPassword = (EditText) findViewById(R.id.editText6);
+        inputEmail = findViewById(R.id.email2);
+        inputPassword = findViewById(R.id.editText6);
         auth = FirebaseAuth.getInstance();
-        btnLogin = (Button) findViewById(R.id.btn_login);
-        btnSignup = (Button) findViewById(R.id.btn_signup);
+        btnLogin = findViewById(R.id.btn_login);
+        btnSignup = findViewById(R.id.btn_signup);
+
+        //Check whether a login session already exists. If so, redirect to main screen.
+        mAuthListener = new FirebaseAuth.AuthStateListener(){
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth auth){
+                FirebaseUser user = auth.getCurrentUser();
+                if(user != null){
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    finish();
+                }
+            }
+        };
 
         //When click the sign up button
         btnSignup.setOnClickListener(new View.OnClickListener() {
@@ -61,14 +74,11 @@ public class LoginActivity extends AppCompatActivity {
                                         Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
                                     }
                                 } else {
-                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                    startActivity(intent);
+                                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
                                     finish();
                                 }
                             }
                         });
-
-
             }
         });
     }
