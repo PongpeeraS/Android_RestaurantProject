@@ -5,26 +5,58 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 
 public class MainActivity extends AppCompatActivity {
-    private Button btnLogOut;
     private FirebaseAuth auth;
+    private Button btnLogOut;
+    private Button btnFmenu;
+    private Button btnReserve;
+    private Button btnHistory;
+    private Button btnCoupon;
+    private Button btnPrefs;
+    private TextView textUsername;
+    private ImageView userPic;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        textUsername = findViewById(R.id.text_username);
+        userPic = findViewById(R.id.userPicView);
+        btnFmenu = findViewById(R.id.fmenuButton);
+        btnReserve = findViewById(R.id.reserveButton);
+        btnHistory = findViewById(R.id.historyButton);
+        btnCoupon = findViewById(R.id.couponButton);
+        btnPrefs = findViewById(R.id.prefButton);
+        btnLogOut = findViewById(R.id.logoutButton);
+
         auth = FirebaseAuth.getInstance();
-        btnLogOut = (Button) findViewById(R.id.button);
-        //When the Log Out button was clicked
+        //Check whether a login session already exists. If not, then redirect to login screen.
+        if(auth.getCurrentUser() == null){
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+        }
+        textUsername.setText(auth.getCurrentUser().getDisplayName()); //get username to display here
+        userPic.setImageURI(auth.getCurrentUser().getPhotoUrl()); //HOW TO GET USER PROFILE PICS?
+
+        //Preferences button: press to see the app's settings.
+        btnPrefs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, PreferencesActivity.class));
+            }
+        });
+        //Log out button: press to sign out and return to login screen.
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 auth.signOut();
                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
-
             }
         });
     }
