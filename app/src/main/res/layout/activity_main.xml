@@ -57,10 +57,10 @@
             android:text="@string/btn_coupon" />
 
         <Button
-            android:id="@+id/prefButton"
+            android:id="@+id/settingsButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/btn_preferences" />
+            android:text="@string/btn_settings" />
 
         <Button
             android:id="@+id/logoutButton"

@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth auth;
-    private Button btnLogOut, btnFmenu, btnReserve, btnOrdering, btnCoupon, btnPrefs;
+    private Button btnLogOut, btnFmenu, btnReserve, btnOrdering, btnCoupon, btnSettings;
     private TextView textUsername;
     private ImageView userPic;
 
@@ -29,17 +29,17 @@ public class MainActivity extends AppCompatActivity {
         btnReserve = findViewById(R.id.reserveButton);
         btnOrdering = findViewById(R.id.orderingButton);
         btnCoupon = findViewById(R.id.couponButton);
-        btnPrefs = findViewById(R.id.prefButton);
+        btnSettings = findViewById(R.id.settingsButton);
         btnLogOut = findViewById(R.id.logoutButton);
 
         textUsername.setText(auth.getCurrentUser().getEmail()); //get email to display here
         //userPic.setImageURI(auth.getCurrentUser().getPhotoUrl()); //HOW TO GET USER PROFILE PICS?
 
         //Preferences button: press to see or change the app's settings.
-        btnPrefs.setOnClickListener(new View.OnClickListener() {
+        btnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, PreferencesActivity.class));
+                startActivity(new Intent(MainActivity.this, SettingsActivity.class));
             }
         });
         //Log out button: press to sign out and return to login screen. DIALOG IS USED HERE
