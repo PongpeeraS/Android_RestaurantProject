@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
                 String mail = inputEmail.getText().toString().trim();
                 final String password = inputPassword.getText().toString().trim();
                 if (TextUtils.isEmpty(mail)) {
-                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.empty_email), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 auth.signInWithEmailAndPassword(mail,password)

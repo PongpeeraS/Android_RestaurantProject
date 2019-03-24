@@ -48,15 +48,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 AlertDialog.Builder builder =
                         new AlertDialog.Builder(MainActivity.this);
-                builder.setMessage("Are you sure you would like to log out?");
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                builder.setMessage(getString(R.string.logout_confirm));
+                builder.setPositiveButton(getString(R.string.text_yes), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         auth.signOut();
                         startActivity(new Intent(MainActivity.this, LoginActivity.class));
                         finish();
                     }
                 });
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton(getString(R.string.text_no), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
