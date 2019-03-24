@@ -33,7 +33,7 @@
     <string name="btn_preferences">Preferences</string>
     <string name="btn_coupon"><![CDATA[Coupons & Privileges]]></string>
     <string name="text_username">(username here)</string>
-    <string name="btn_history">History</string>
+    <string name="btn_ordering">Food Ordering &amp; History</string>
     <string name="btn_reserve">Table Reservation</string>
     <string name="btn_fmenu">Food Menu</string>
     <string name="title_activity_preferences">Preferences</string>

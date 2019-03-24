@@ -1,4 +1,6 @@
 package com.example.restaurantproject;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth auth;
-    private Button btnLogOut, btnFmenu, btnReserve, btnHistory, btnCoupon, btnPrefs;
+    private Button btnLogOut, btnFmenu, btnReserve, btnOrdering, btnCoupon, btnPrefs;
     private TextView textUsername;
     private ImageView userPic;
 
@@ -20,32 +22,47 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        auth = FirebaseAuth.getInstance();
         textUsername = findViewById(R.id.text_username);
         userPic = findViewById(R.id.userPicView);
         btnFmenu = findViewById(R.id.fmenuButton);
         btnReserve = findViewById(R.id.reserveButton);
-        btnHistory = findViewById(R.id.historyButton);
+        btnOrdering = findViewById(R.id.orderingButton);
         btnCoupon = findViewById(R.id.couponButton);
         btnPrefs = findViewById(R.id.prefButton);
         btnLogOut = findViewById(R.id.logoutButton);
 
-        auth = FirebaseAuth.getInstance();
-        textUsername.setText(auth.getCurrentUser().getDisplayName()); //get username to display here
+        textUsername.setText(auth.getCurrentUser().getEmail()); //get email to display here
         //userPic.setImageURI(auth.getCurrentUser().getPhotoUrl()); //HOW TO GET USER PROFILE PICS?
 
-        //Preferences button: press to see the app's settings.
+        //Preferences button: press to see or change the app's settings.
         btnPrefs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, PreferencesActivity.class));
             }
         });
-        //Log out button: press to sign out and return to login screen.
+        //Log out button: press to sign out and return to login screen. DIALOG IS USED HERE
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                auth.signOut();
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                AlertDialog.Builder builder =
+                        new AlertDialog.Builder(MainActivity.this);
+                builder.setMessage("Are you sure you would like to log out?");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        auth.signOut();
+                        startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                        finish();
+                    }
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+                builder.show();
             }
         });
     }

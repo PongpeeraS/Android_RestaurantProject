@@ -42,11 +42,11 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
 
-        //When click Sign Up button
+        //On clicking 'Sign Up', the information from the fields will be used to create a new account
+        //on the Firebase authentication database.
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String email = inputEmail.getText().toString().trim();
                 String password = inputPassword.getText().toString().trim();
                 String conpass = confirmPassword.getText().toString().trim();
@@ -71,7 +71,6 @@ public class SignupActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Wrong password confirmation!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
                 //create user
                 auth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
