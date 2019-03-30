@@ -18,12 +18,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="18sp" />
 
-        <Spinner
-            android:id="@+id/spinner_language"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:spinnerMode="dialog" />
-
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
