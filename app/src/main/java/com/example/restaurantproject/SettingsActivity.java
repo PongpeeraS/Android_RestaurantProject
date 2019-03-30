@@ -62,7 +62,7 @@ public class SettingsActivity extends AppCompatActivity {
         });
     }
 
-    @Override
+    /*@Override
     protected void onStart() {
         super.onStart();
         SharedPreferences sharedPref = this.getSharedPreferences("selectedLanguage", Context.MODE_PRIVATE);
@@ -72,5 +72,5 @@ public class SettingsActivity extends AppCompatActivity {
         Configuration config = new Configuration();//get Configuration
         config.locale = locale;//set config locale as selected locale
         this.getResources().updateConfiguration(config, this.getResources().getDisplayMetrics());
-    }
+    }*/
 }
