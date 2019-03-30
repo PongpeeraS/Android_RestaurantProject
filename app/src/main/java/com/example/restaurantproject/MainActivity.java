@@ -1,7 +1,10 @@
 package com.example.restaurantproject;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth auth;
@@ -71,5 +76,17 @@ public class MainActivity extends AppCompatActivity {
                 builder.show();
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        SharedPreferences sharedPref = this.getSharedPreferences("selectedLanguage", Context.MODE_PRIVATE);
+        String languageToLoad = sharedPref.getString("language", "");
+        Locale locale = new Locale(languageToLoad);//Set Selected Locale
+        Locale.setDefault(locale);//set new locale as default
+        Configuration config = new Configuration();//get Configuration
+        config.locale = locale;//set config locale as selected locale
+        this.getResources().updateConfiguration(config, this.getResources().getDisplayMetrics());
     }
 }
