@@ -1,5 +1,8 @@
 package com.example.restaurantproject;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +16,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Locale;
 
 public class SignupActivity extends AppCompatActivity {
     private EditText inputEmail, inputPassword, confirmPassword;
@@ -90,5 +95,16 @@ public class SignupActivity extends AppCompatActivity {
                         });
             }
         });
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        SharedPreferences sharedPref = this.getSharedPreferences("selectedLanguage", Context.MODE_PRIVATE);
+        String languageToLoad = sharedPref.getString("language", "");
+        Locale locale = new Locale(languageToLoad);//Set Selected Locale
+        Locale.setDefault(locale);//set new locale as default
+        Configuration config = new Configuration();//get Configuration
+        config.locale = locale;//set config locale as selected locale
+        this.getResources().updateConfiguration(config, this.getResources().getDisplayMetrics());
     }
 }

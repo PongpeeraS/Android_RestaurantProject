@@ -17,14 +17,19 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.Locale;
 
 public class SettingsActivity extends AppCompatActivity {
+    private FirebaseAuth auth;
     Button btnLanguage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        auth = FirebaseAuth.getInstance();
         btnLanguage = findViewById(R.id.btn_language);
 
         btnLanguage.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +53,9 @@ public class SettingsActivity extends AppCompatActivity {
                                 Toast.makeText(SettingsActivity.this, "Thai Selected", Toast.LENGTH_SHORT).show();
                                 break;
                         }
+                        auth.signOut();
                         finishAndRemoveTask();
+                        startActivity(new Intent(SettingsActivity.this, LoginActivity.class));
                     }
                 }).setCancelable(false).create().show();
             }

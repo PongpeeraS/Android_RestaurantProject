@@ -1,5 +1,8 @@
 package com.example.restaurantproject;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -15,11 +18,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Locale;
+
 public class LoginActivity extends AppCompatActivity {
     private Button btnSignup, btnLogin;
     private EditText inputEmail, inputPassword;
     private FirebaseAuth auth;
-    FirebaseAuth.AuthStateListener mAuthListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,18 +33,6 @@ public class LoginActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         btnLogin = findViewById(R.id.btn_login);
         btnSignup = findViewById(R.id.btn_signup);
-
-        //Check whether a login session already exists. If so, redirect to main screen.
-        mAuthListener = new FirebaseAuth.AuthStateListener(){
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth auth){
-                FirebaseUser user = auth.getCurrentUser();
-                if(user != null){
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                    finish();
-                }
-            }
-        };
 
         //When click the sign up button
         btnSignup.setOnClickListener(new View.OnClickListener() {
@@ -81,5 +73,17 @@ public class LoginActivity extends AppCompatActivity {
                         });
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        SharedPreferences sharedPref = this.getSharedPreferences("selectedLanguage", Context.MODE_PRIVATE);
+        String languageToLoad = sharedPref.getString("language", "");
+        Locale locale = new Locale(languageToLoad);//Set Selected Locale
+        Locale.setDefault(locale);//set new locale as default
+        Configuration config = new Configuration();//get Configuration
+        config.locale = locale;//set config locale as selected locale
+        this.getResources().updateConfiguration(config, this.getResources().getDisplayMetrics());
     }
 }

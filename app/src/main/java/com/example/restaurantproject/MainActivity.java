@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+                finish();
             }
         });
         //Log out button: press to sign out and return to login screen. (DIALOG IS USED HERE)
