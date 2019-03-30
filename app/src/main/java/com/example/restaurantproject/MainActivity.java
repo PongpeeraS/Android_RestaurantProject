@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         textUsername.setText(auth.getCurrentUser().getEmail()); //get email to display here
         //userPic.setImageURI(auth.getCurrentUser().getPhotoUrl()); //HOW TO GET USER PROFILE PICS?
 
-        btnSettings.setOnClickListener(new View.OnClickListener() {
+        btnFmenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, FoodMenuActivity.class));
