@@ -53,22 +53,22 @@ public class SignupActivity extends AppCompatActivity {
                 //Registration Criteria
                 //Check the email field is empty or not
                 if (TextUtils.isEmpty(email)) {
-                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.toast_noemail), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 //Check the password field is empty or not
                 if (TextUtils.isEmpty(password)) {
-                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.toast_nopassword), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 //Check the minimum of password
                 if (password.length() < 6) {
-                    Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.minimum_password), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 //Check Confirmation
                 if(!conpass.equals(password)){
-                    Toast.makeText(getApplicationContext(), "Wrong password confirmation!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.toast_wrongconpass), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 //create user
@@ -76,12 +76,13 @@ public class SignupActivity extends AppCompatActivity {
                         .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                Toast.makeText(SignupActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                                 //Display the warning if sign up is fail
                                 if (!task.isSuccessful()) {
-                                    Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),
-                                            Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(SignupActivity.this, getString(R.string.toast_authfail)
+                                                    + task.getException(), Toast.LENGTH_SHORT).show();
                                 } else {
+                                    Toast.makeText(SignupActivity.this, getString(R.string.toast_authpass),
+                                            Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(SignupActivity.this, MainActivity.class));
                                     finish();
                                 }

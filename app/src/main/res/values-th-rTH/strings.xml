@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Restaurant</string>
+    <string name="action_sign_in_short">ลงทะเบียน</string>
+    <string name="minimum_password">รหัสผ่านสั้นไป กรุณาใส่อย่างน้อย 6 ตัว</string>
+    <string name="auth_failed">ยืนยันตัวตนไม่สำเร็จ กรุณาตรวจสอบ email หรือรหัสผ่าน</string>
+    <string name="hint_password">รหัสผ่าน</string>
+    <string name="btn_login">เข้าสู่ระบบ</string>
+    <string name="btn_link_to_register">ไม่ใช่สมาชิก? ลงทะเบียนกับ My Restaurant!</string>
+    <string name="btn_link_to_login">เป็นสมาชิกแล้ว? กลับไปหน้าเข้าสู่ระบบ!</string>
+    <string name="hint_password_confirm">ยืนยันรหัสผ่าน</string>
+    <string name="logout_confirm">ต้องการจะออกจากระบบหรือไม่?</string>
+    <string name="text_no">ไม่ใช่</string>
+    <string name="text_yes">ใช่</string>
+    <string name="empty_email">กรุณาใส่ Email ด้วย!</string>
+    <string name="btn_logout">ออกจากระบบ</string>
+    <string name="btn_coupon">คูปองและสิทธิพิเศษ</string>
+    <string name="btn_fmenu">รายการอาหาร</string>
+    <string name="btn_ordering">ประวัติการสั่งอาหาร</string>
+    <string name="btn_reserve">จองโต๊ะ</string>
+    <string name="btn_sign_out">ออกจากระบบ</string>
+    <string name="btn_settings">ตั้งค่า</string>
+    <string name="text_language">ภาษา</string>
+    <string name="Search">ค้นหา</string>
+    <string name="toast_noemail">กรุณาใส่ Email!</string>
+    <string name="toast_nopassword">กรุณาใส่รหัสผ่าน!</string>
+    <string name="toast_wrongconpass">รหัสผ่านกับรหัสผ่านยืนยันไม่ตรงกัน!</string>
+    <string name="toast_authpass">สร้างบัญชีแล้ว กำลังเข้าสู่ระบบ...</string>
+    <string name="toast_authfail">สร้างบัญชีล้มเหลว</string>
+</resources>

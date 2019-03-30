@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //TEST Email: testmail@mail.com Pass: 12345678
+        //TEST Email: t@m.com Pass: 12345678
         auth = FirebaseAuth.getInstance();
         textUsername = findViewById(R.id.text_username);
         userPic = findViewById(R.id.userPicView);
