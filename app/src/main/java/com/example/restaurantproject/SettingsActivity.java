@@ -57,7 +57,7 @@ public class SettingsActivity extends AppCompatActivity {
                         finishAndRemoveTask();
                         startActivity(new Intent(SettingsActivity.this, LoginActivity.class));
                     }
-                }).setCancelable(false).create().show();
+                }).setCancelable(true).create().show();
             }
         });
     }
