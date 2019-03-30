@@ -35,14 +35,20 @@ public class MainActivity extends AppCompatActivity {
         textUsername.setText(auth.getCurrentUser().getEmail()); //get email to display here
         //userPic.setImageURI(auth.getCurrentUser().getPhotoUrl()); //HOW TO GET USER PROFILE PICS?
 
-        //Preferences button: press to see or change the app's settings.
+        btnSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, FoodMenuActivity.class));
+            }
+        });
+        //Settings button: press to see or change the app's settings.
         btnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, SettingsActivity.class));
             }
         });
-        //Log out button: press to sign out and return to login screen. DIALOG IS USED HERE
+        //Log out button: press to sign out and return to login screen. (DIALOG IS USED HERE)
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
