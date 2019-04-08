@@ -1,7 +1,5 @@
 package com.example.restaurantproject;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,10 +9,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,6 +27,8 @@ public class SettingsActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         btnLanguage = findViewById(R.id.btn_language);
 
+        //TODO: Same settings -> no update
+        //TODO: Restart the app
         btnLanguage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +59,7 @@ public class SettingsActivity extends AppCompatActivity {
         });
     }
 
-    /*@Override
+    @Override
     protected void onStart() {
         super.onStart();
         SharedPreferences sharedPref = this.getSharedPreferences("selectedLanguage", Context.MODE_PRIVATE);
@@ -72,5 +69,5 @@ public class SettingsActivity extends AppCompatActivity {
         Configuration config = new Configuration();//get Configuration
         config.locale = locale;//set config locale as selected locale
         this.getResources().updateConfiguration(config, this.getResources().getDisplayMetrics());
-    }*/
+    }
 }
