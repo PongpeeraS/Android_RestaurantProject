@@ -99,6 +99,7 @@ public class SignupActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        /*Setting the activity's locale through saved SharedPreference*/
         SharedPreferences sharedPref = this.getSharedPreferences("selectedLanguage", Context.MODE_PRIVATE);
         String languageToLoad = sharedPref.getString("language", "");
         Locale locale = new Locale(languageToLoad);//Set Selected Locale

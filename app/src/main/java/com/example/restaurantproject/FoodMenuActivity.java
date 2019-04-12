@@ -17,7 +17,7 @@ import com.mancj.materialsearchbar.MaterialSearchBar;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/*Activity for users to view the food menu*/
 public class FoodMenuActivity extends AppCompatActivity {
     private EditText mSearchField;
     private Button mSearchBtn;
@@ -36,6 +36,7 @@ public class FoodMenuActivity extends AppCompatActivity {
 
         mResultList = (RecyclerView) findViewById(R.id.recycler_search);
 
+        // Creating & setting a linear layout manager & adapter for the RecyclerView
         linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mResultList.setLayoutManager(linearLayoutManager);

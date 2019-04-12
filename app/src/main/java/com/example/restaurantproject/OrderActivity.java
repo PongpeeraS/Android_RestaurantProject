@@ -6,22 +6,25 @@ import android.support.design.widget.TabLayout;
 
 import com.example.restaurantproject.Adapter.PagerAdapter;
 
+/*Activity to view the user's current & previous orders (2 separate tabs)*/
 public class OrderActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
-
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout_order);
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+
+        /*Creating the 2 tabs in the activity*/
         tabLayout.addTab(tabLayout.newTab().setText("Current"));
         tabLayout.addTab(tabLayout.newTab().setText("History"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
-        final PagerAdapter adapter = new PagerAdapter
-                (getSupportFragmentManager(), tabLayout.getTabCount());
+        /*Creating and setting the adapter for the pager*/
+        final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        /*Listeners for the the selected tab changes*/
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

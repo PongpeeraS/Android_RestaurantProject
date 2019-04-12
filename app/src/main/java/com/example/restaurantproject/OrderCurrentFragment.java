@@ -9,25 +9,22 @@ import android.view.ViewGroup;
 
 import com.example.restaurantproject.Adapter.OrderAdapter;
 
+/*First fragment of the OrderActivity, displays the current orders*/
 public class OrderCurrentFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         recyclerView = (RecyclerView) getView().findViewById(R.id.recycler_current);
 
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        recyclerView.setHasFixedSize(true);
-
-        // use a linear layout manager
+        // Creating & setting a linear layout manager for the RecyclerView
         layoutManager = new LinearLayoutManager(this.getContext());
         recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
 
-        // specify an adapter (see also next example)
+        // Specifying the Orders adapter
         mAdapter = new OrderAdapter(null); //TODO: CHANGE NULL INTO CURRENT ORDERS DATA!
         recyclerView.setAdapter(mAdapter);
 

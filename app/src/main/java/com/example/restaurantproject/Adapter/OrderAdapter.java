@@ -61,7 +61,7 @@ class OrderViewHolder extends RecyclerView.ViewHolder {
         price = (TextView)itemView.findViewById(R.id.price);
         des = (TextView)itemView.findViewById(R.id.des); */
         textView = v;
-        //TODO: OnClick to more details (same for both current & history?)
+        //TODO: OnClick to more details/activity (same for both current & history?)
     }
 }
 

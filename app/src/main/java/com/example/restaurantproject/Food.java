@@ -1,5 +1,6 @@
 package com.example.restaurantproject;
 
+/*Class used to contain the details of each food item in the menu*/
 public class Food {
     private String name;
     private int price;
@@ -31,7 +32,6 @@ public class Food {
     public String getImg(){
         return this.img;
     }
-
     public int getPrice(){
         return this.price;
     }
@@ -57,5 +57,4 @@ public class Food {
     public void setDes(String des){
         this.type=type;
     }
-
 }

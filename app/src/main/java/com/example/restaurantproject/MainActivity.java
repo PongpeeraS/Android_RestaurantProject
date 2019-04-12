@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Locale;
 
+/*The main activity after logging in, access all functions from here*/
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private Button btnLogOut, btnFmenu, btnReserve, btnOrdering, btnCoupon, btnSettings;
@@ -37,26 +38,29 @@ public class MainActivity extends AppCompatActivity {
         btnSettings = findViewById(R.id.settingsButton);
         btnLogOut = findViewById(R.id.logoutButton);
 
+        //Displays brief user information
         textUsername.setText(auth.getCurrentUser().getEmail()); //get email to display here
         //userPic.setImageURI(auth.getCurrentUser().getPhotoUrl()); //HOW TO GET USER PROFILE PICS?
 
+        //Food menu button: press to view the food menu & make orders
         btnFmenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, FoodMenuActivity.class));
             }
         });
-        //Settings button: press to see or change the app's settings.
+        //Settings button: press to see or change the app's settings
         btnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, SettingsActivity.class));
             }
         });
-        //Log out button: press to sign out and return to login screen. (DIALOG IS USED HERE)
+        //Log out button: press to sign out and return to login screen
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*Dialog is used here for users to confirm logout*/
                 AlertDialog.Builder builder =
                         new AlertDialog.Builder(MainActivity.this);
                 builder.setMessage(getString(R.string.logout_confirm));
@@ -81,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        /*Setting the activity's locale through saved SharedPreference*/
         SharedPreferences sharedPref = this.getSharedPreferences("selectedLanguage", Context.MODE_PRIVATE);
         String languageToLoad = sharedPref.getString("language", "");
         Locale locale = new Locale(languageToLoad);//Set Selected Locale
