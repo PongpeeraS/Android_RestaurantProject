@@ -1,7 +1,9 @@
-package com.example.restaurantproject;
+package com.example.restaurantproject.Adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.example.restaurantproject.OrderCurrentFragment;
 
 public class PagerAdapter extends FragmentPagerAdapter {
     int numberOfTabs;

@@ -23,13 +23,11 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchViewHolder>{
         this.foods = foods;
     }
 
-
-
     @NonNull
     @Override
     public SearchViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View itemView = inflater.inflate(R.layout.layout_item,parent,false);
+        View itemView = inflater.inflate(R.layout.layout_item_food,parent,false);
 
         return new SearchViewHolder(itemView);
     }
@@ -39,8 +37,6 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchViewHolder>{
         searchViewHolder.name.setText(foods.get(i).getName());
         searchViewHolder.price.setText(foods.get(i).getPrice()+" baht");
         searchViewHolder.des.setText(foods.get(i).getDes());
-
-
     }
 
     @Override
@@ -58,8 +54,6 @@ class SearchViewHolder extends RecyclerView.ViewHolder {
         name = (TextView)itemView.findViewById(R.id.fname);
         price = (TextView)itemView.findViewById(R.id.price);
         des = (TextView)itemView.findViewById(R.id.des);
-
-
     }
 
 }
