@@ -29,10 +29,6 @@
     <string name="toast_wrongconpass">Wrong password confirmation!</string>
     <string name="toast_authfail">Authentication failed.</string>
     <string name="toast_authpass">Account registered! Automatically logging in...</string>
-    <string-array name="language_option">
-        <item>English</item>
-        <item>ไทย</item>
-    </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
