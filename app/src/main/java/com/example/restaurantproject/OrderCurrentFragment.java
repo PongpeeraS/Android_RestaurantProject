@@ -25,7 +25,7 @@ public class OrderCurrentFragment extends Fragment {
 
         // Specifying the Orders adapter
         String[] str = new String[]{"Alpha", "Beta"};
-        mAdapter = new OrderAdapter(str); //TODO: CHANGE NULL INTO CURRENT ORDERS DATA!
+        mAdapter = new OrderAdapter(this.getContext(), str); //TODO: CHANGE NULL INTO CURRENT ORDERS DATA!
         recyclerView.setAdapter(mAdapter);
 
         // Inflate the layout for this fragment

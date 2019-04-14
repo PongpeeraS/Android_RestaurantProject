@@ -25,7 +25,7 @@ public class OrderHistoryFragment extends Fragment {
 
         // Specifying the Orders adapter
         String[] str = new String[]{"Gamma", "Zeta"};
-        mAdapter = new OrderAdapter(str); //TODO: CHANGE NULL INTO HISTORY ORDERS DATA!
+        mAdapter = new OrderAdapter(this.getContext(), str); //TODO: CHANGE NULL INTO HISTORY ORDERS DATA!
         recyclerView.setAdapter(mAdapter);
 
         // Inflate the layout for this fragment
