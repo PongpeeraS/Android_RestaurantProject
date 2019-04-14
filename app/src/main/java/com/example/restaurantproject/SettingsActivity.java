@@ -20,18 +20,13 @@ import java.util.Locale;
 
 /*Activity for user to change the app's settings*/
 public class SettingsActivity extends AppCompatActivity {
-    private FirebaseAuth auth;
     Button btnLanguage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-
-        auth = FirebaseAuth.getInstance();
         btnLanguage = findViewById(R.id.btn_language);
 
-        //TODO: Same settings -> no update
-        //TODO: Restart the app
         /*Change language button: change the language between English & Thai
         * A dialog box will appear after pressing the button, where the user can choose
         * the app's language. If the language chosen is different than the current one,
