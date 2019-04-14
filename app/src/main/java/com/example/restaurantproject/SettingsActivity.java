@@ -14,8 +14,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-
 import java.util.Locale;
 
 /*Activity for user to change the app's settings*/
