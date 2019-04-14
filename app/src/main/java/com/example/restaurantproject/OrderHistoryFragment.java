@@ -7,8 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.restaurantproject.Adapter.OrderAdapter;
-
 /*Second fragment of the OrderActivity, displays the previous orders*/
 public class OrderHistoryFragment extends Fragment {
     private RecyclerView recyclerView;
@@ -17,7 +15,8 @@ public class OrderHistoryFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        recyclerView = (RecyclerView) getView().findViewById(R.id.recycler_history);
+        final View view = inflater.inflate(R.layout.fragment_order_history, container, false);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_history);
 
         // Creating & setting a linear layout manager for the RecyclerView
         layoutManager = new LinearLayoutManager(this.getContext());
@@ -25,10 +24,11 @@ public class OrderHistoryFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
 
         // Specifying the Orders adapter
-        mAdapter = new OrderAdapter(null); //TODO: CHANGE NULL INTO HISTORY ORDERS DATA!
+        String[] str = new String[]{"Gamma", "Zeta"};
+        mAdapter = new OrderAdapter(str); //TODO: CHANGE NULL INTO HISTORY ORDERS DATA!
         recyclerView.setAdapter(mAdapter);
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_order_history, container, false);
+        return view;
     }
 }

@@ -4,8 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 
-import com.example.restaurantproject.Adapter.PagerAdapter;
-
 /*Activity to view the user's current & previous orders (2 separate tabs)*/
 public class OrderActivity extends AppCompatActivity {
     @Override

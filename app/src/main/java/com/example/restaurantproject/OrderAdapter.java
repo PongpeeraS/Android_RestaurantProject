@@ -1,13 +1,10 @@
-package com.example.restaurantproject.Adapter;
+package com.example.restaurantproject;
 
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import com.example.restaurantproject.R;
 
 public class OrderAdapter extends RecyclerView.Adapter<OrderViewHolder> {
     private String[] mDataset;
@@ -29,7 +26,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderViewHolder> {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         //TODO: Edit layout_item_order for this menu
         View itemView = inflater.inflate(R.layout.layout_item_order, parent,false);
-        return new OrderViewHolder((TextView) itemView);
+        return new OrderViewHolder(itemView);
     }
 
     // Replace the contents of a view (invoked by the layout manager)
@@ -54,13 +51,13 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderViewHolder> {
 class OrderViewHolder extends RecyclerView.ViewHolder {
     // each data item is just a string in this case
     public TextView textView;
-    public OrderViewHolder(TextView v) {
-        super(v);
+    public OrderViewHolder(View view) {
+        super(view);
         /*TODO: Set details on each item, Example from SearchAdapter:
         name = (TextView)itemView.findViewById(R.id.fname);
         price = (TextView)itemView.findViewById(R.id.price);
         des = (TextView)itemView.findViewById(R.id.des); */
-        textView = v;
+        textView = view.findViewById(R.id.oname);
         //TODO: OnClick to more details/activity (same for both current & history?)
     }
 }

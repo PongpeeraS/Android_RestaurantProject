@@ -7,8 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.restaurantproject.Adapter.OrderAdapter;
-
 /*First fragment of the OrderActivity, displays the current orders*/
 public class OrderCurrentFragment extends Fragment {
     private RecyclerView recyclerView;
@@ -17,7 +15,8 @@ public class OrderCurrentFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        recyclerView = (RecyclerView) getView().findViewById(R.id.recycler_current);
+        final View view = inflater.inflate(R.layout.fragment_order_current, container, false);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_current);
 
         // Creating & setting a linear layout manager for the RecyclerView
         layoutManager = new LinearLayoutManager(this.getContext());
@@ -25,10 +24,11 @@ public class OrderCurrentFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
 
         // Specifying the Orders adapter
-        mAdapter = new OrderAdapter(null); //TODO: CHANGE NULL INTO CURRENT ORDERS DATA!
+        String[] str = new String[]{"Alpha", "Beta"};
+        mAdapter = new OrderAdapter(str); //TODO: CHANGE NULL INTO CURRENT ORDERS DATA!
         recyclerView.setAdapter(mAdapter);
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_order_current, container, false);
+        return view;
     }
 }
