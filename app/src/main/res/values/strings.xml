@@ -43,4 +43,7 @@
     <string name="text_ccode">Code</string>
     <string name="text_cnumuse">Remaining uses</string>
     <string name="text_promotion">Type in \"12345\" to get\n3 uses of\n50% off Fried Chicken</string>
+    <string name="text_voucher_pass">Voucher code added!</string>
+    <string name="text_voucher_fail">Invalid voucher code!</string>
+    <string name="text_voucher_input">Input the voucher code:</string>
 </resources>

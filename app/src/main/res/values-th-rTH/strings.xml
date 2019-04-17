@@ -38,4 +38,7 @@
     <string name="text_ccode">รหัสยืนยัน</string>
     <string name="text_cnumuse">จำนวนครั้งที่เหลือ</string>
     <string name="text_promotion">ใช้โค้ด \"12345\"\nเพื่อรับสิทธิ์ลดราคา Fried Chicken 50%\n3 ครั้ง</string>
+    <string name="text_voucher_pass">เพิ่มโค้ดสำเร็จ!</string>
+    <string name="text_voucher_fail">โค้ดไม่ถูกต้อง!</string>
+    <string name="text_voucher_input">ใส่โค้ด Voucher:</string>
 </resources>

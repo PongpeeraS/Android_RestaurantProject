@@ -1,7 +1,6 @@
 package com.example.restaurantproject.Coupon;
 
 public class Coupon {
-    private int id;
     private String uID;
     private String name;
     private String desc;
@@ -9,8 +8,7 @@ public class Coupon {
     private String code;
     private int numOfUses;
 
-    public Coupon(int id, String uID, String name, String desc, String enddate, String code, int numOfUses){
-        this.id = id;
+    public Coupon(String uID, String name, String desc, String enddate, String code, int numOfUses){
         this.uID = uID;
         this.name = name;
         this.desc = desc;
@@ -27,8 +25,6 @@ public class Coupon {
     public void setEnddate(String enddate) { this.enddate = enddate; }
     public String getCode() { return code; }
     public void setCode(String code) { this.code = code; }
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
     public String getuID() { return uID; }
     public void setuID(String uID) { this.uID = uID; }
     public int getNumOfUses() { return numOfUses; }

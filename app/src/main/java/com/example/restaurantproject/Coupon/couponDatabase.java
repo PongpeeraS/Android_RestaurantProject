@@ -16,7 +16,6 @@ public class couponDatabase extends SQLiteOpenHelper {
     private static final String DB_NAME = "Coupons.db";
     private static final int DB_VER = 1;
     private static final String TABLE_NAME = "Coupon";
-    private static final String KEY_ID = "_id"; //unique id record number
     private static final String KEY_UID = "uID"; //user id
     private static final String KEY_NAME = "name"; //coupon name
     private static final String KEY_DESC = "description"; //coupon description
@@ -50,7 +49,7 @@ public class couponDatabase extends SQLiteOpenHelper {
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
         /*SQLiteQueryBuilder is used to simplify the SELECT query*/
         //Attributes to retrieve from the table
-        String[] sqlselect = {KEY_ID, KEY_UID, KEY_NAME, KEY_DESC, KEY_ENDDATE, KEY_CODE, KEY_NUMOFUSES};
+        String[] sqlselect = {"_id", KEY_UID, KEY_NAME, KEY_DESC, KEY_ENDDATE, KEY_CODE, KEY_NUMOFUSES};
         qb.setTables(TABLE_NAME);
         //SELECT QUERY: SELECT * FROM Coupon WHERE uID = '(userID)'
         Cursor cursor = qb.query(db, sqlselect, "uID = ?", new String[] {uID},
@@ -59,14 +58,13 @@ public class couponDatabase extends SQLiteOpenHelper {
         //Retrieving results, put them into a Coupon object and into an ArrayList
         if (cursor.moveToFirst()) {
             do {
-                int id = cursor.getInt(cursor.getColumnIndex(KEY_ID));
                 String uid = cursor.getString(cursor.getColumnIndex(KEY_UID));
                 String name = cursor.getString(cursor.getColumnIndex(KEY_NAME));
                 String desc = cursor.getString(cursor.getColumnIndex(KEY_DESC));
                 String enddate = cursor.getString(cursor.getColumnIndex(KEY_ENDDATE));
                 String code = cursor.getString(cursor.getColumnIndex(KEY_CODE));
                 int numOfUses = cursor.getInt(cursor.getColumnIndex(KEY_NUMOFUSES));
-                result.add(new Coupon(id, uid, name, desc, enddate, code, numOfUses));
+                result.add(new Coupon(uid, name, desc, enddate, code, numOfUses));
             } while (cursor.moveToNext());
         }
         return result;
@@ -77,7 +75,6 @@ public class couponDatabase extends SQLiteOpenHelper {
         //Insert coupon created in CouponActivity
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(KEY_ID, coupon.getId());
         cv.put(KEY_UID, coupon.getuID());
         cv.put(KEY_NAME, coupon.getName());
         cv.put(KEY_DESC, coupon.getDesc());
