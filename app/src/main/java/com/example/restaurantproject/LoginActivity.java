@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,6 +24,7 @@ import java.util.Locale;
 public class LoginActivity extends AppCompatActivity {
     private Button btnSignup, btnLogin;
     private EditText inputEmail, inputPassword;
+    private ProgressBar pBar;
     private FirebaseAuth auth;
 
     @Override
@@ -34,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         btnLogin = findViewById(R.id.btn_login);
         btnSignup = findViewById(R.id.btn_signup);
+        pBar = findViewById(R.id.login_pbar);
 
         //Clicking the signup button will create a new SignupActivity
         btnSignup.setOnClickListener(new View.OnClickListener() {
@@ -49,10 +52,12 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pBar.setVisibility(View.VISIBLE);
                 String mail = inputEmail.getText().toString().trim();
                 final String password = inputPassword.getText().toString().trim();
                 if (TextUtils.isEmpty(mail)) { //No email input -> Toast to user
                     Toast.makeText(getApplicationContext(), getString(R.string.empty_email), Toast.LENGTH_SHORT).show();
+                    pBar.setVisibility(View.GONE);
                     return;
                 }
                 //Authentication, listens on completion whether the login fails or succeeds
@@ -65,11 +70,14 @@ public class LoginActivity extends AppCompatActivity {
                                     // There was an error: password too chore or other auth issues
                                     if (password.length() < 6) {
                                         inputPassword.setError(getString(R.string.minimum_password));
+                                        pBar.setVisibility(View.GONE);
                                     } else {
                                         Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
+                                        pBar.setVisibility(View.GONE);
                                     }
                                 } else { //Redirect to MainActivity after logging in
                                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                    pBar.setVisibility(View.GONE);
                                     finish();
                                 }
                             }
