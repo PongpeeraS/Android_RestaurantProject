@@ -1,4 +1,4 @@
-package com.example.restaurantproject.Adapter;
+package com.example.restaurantproject.FoodMenu;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.restaurantproject.Food;
 import com.example.restaurantproject.R;
 
 import java.util.List;
@@ -16,7 +15,7 @@ import java.util.List;
 public class SearchAdapter extends RecyclerView.Adapter<SearchViewHolder>{
 
     private Context context;
-    List<Food> foods;
+    private List<Food> foods;
 
     public SearchAdapter(Context context, List<Food> foods) {
         this.context = context;

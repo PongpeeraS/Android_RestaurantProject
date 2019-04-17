@@ -16,7 +16,7 @@
     <string name="btn_logout">ออกจากระบบ</string>
     <string name="btn_coupon">คูปองและสิทธิพิเศษ</string>
     <string name="btn_fmenu">รายการอาหาร</string>
-    <string name="btn_ordering">ประวัติการสั่งอาหาร</string>
+    <string name="btn_orders">สถานะส่งอาหารและประวัติการสั่ง</string>
     <string name="btn_reserve">จองโต๊ะ</string>
     <string name="btn_sign_out">ออกจากระบบ</string>
     <string name="btn_settings">ตั้งค่า</string>
@@ -27,4 +27,15 @@
     <string name="toast_wrongconpass">รหัสผ่านกับรหัสผ่านยืนยันไม่ตรงกัน!</string>
     <string name="toast_authpass">สร้างบัญชีแล้ว กำลังเข้าสู่ระบบ...</string>
     <string name="toast_authfail">สร้างบัญชีล้มเหลว</string>
+    <string name="text_coupon" translatable="false">คูปองที่มีอยู่</string>
+    <string name="text_priv">โปรโมชั่นที่มีอยู่</string>
+    <string name="btn_add_coupon">เพิ่มคูปอง</string>
+    <string name="text_back">ย้อนกลับ</string>
+    <string name="text_use">ใช้คูปอง</string>
+    <string name="text_cname">ชื่อ</string>
+    <string name="text_cdesc">รายละเอียด</string>
+    <string name="text_cdate">วันหมดอายุ</string>
+    <string name="text_ccode">รหัสยืนยัน</string>
+    <string name="text_cnumuse">จำนวนครั้งที่เหลือ</string>
+    <string name="text_promotion">ใช้โค้ด \"12345\"\nเพื่อรับสิทธิ์ลดราคา Fried Chicken 50%\n3 ครั้ง</string>
 </resources>

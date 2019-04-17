@@ -14,7 +14,7 @@
     <string name="btn_settings">Settings</string>
     <string name="btn_coupon"><![CDATA[Coupons & Privileges]]></string>
     <string name="text_username" translatable="false">(username here)</string>
-    <string name="btn_ordering">Food Ordering &amp; History</string>
+    <string name="btn_orders">Food Ordering &amp; History</string>
     <string name="btn_reserve">Table Reservation</string>
     <string name="btn_fmenu">Food Menu</string>
     <string name="desc_userPic" translatable="false">User profile image</string>
@@ -32,4 +32,15 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="text_coupon">Coupons</string>
+    <string name="text_priv">Current Promotions</string>
+    <string name="btn_add_coupon">Add Coupon</string>
+    <string name="text_back">Back</string>
+    <string name="text_use">Use</string>
+    <string name="text_cname">Name</string>
+    <string name="text_cdesc">Description</string>
+    <string name="text_cdate">Expiry Date</string>
+    <string name="text_ccode">Code</string>
+    <string name="text_cnumuse">Remaining uses</string>
+    <string name="text_promotion">Type in \"12345\" to get\n3 uses of\n50% off Fried Chicken</string>
 </resources>

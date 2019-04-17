@@ -6,12 +6,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.widget.Button;
-import android.widget.EditText;
 
-import com.example.restaurantproject.Adapter.SearchAdapter;
-import com.example.restaurantproject.database.database;
-import com.google.firebase.database.DatabaseReference;
+import com.example.restaurantproject.FoodMenu.SearchAdapter;
+import com.example.restaurantproject.FoodMenu.foodDatabase;
 import com.mancj.materialsearchbar.MaterialSearchBar;
 
 import java.util.ArrayList;
@@ -19,12 +16,9 @@ import java.util.List;
 
 /*Activity for users to view the food menu*/
 public class FoodMenuActivity extends AppCompatActivity {
-    private EditText mSearchField;
-    private Button mSearchBtn;
     private LinearLayoutManager linearLayoutManager;
     private RecyclerView mResultList;
-    private DatabaseReference mUserDatabase;
-    private com.example.restaurantproject.database.database database;
+    private foodDatabase foodDatabase;
     SearchAdapter adapter;
 
     MaterialSearchBar materialSearchBar;
@@ -45,7 +39,7 @@ public class FoodMenuActivity extends AppCompatActivity {
 
         materialSearchBar = (MaterialSearchBar)findViewById(R.id.search_bar);
 
-        database = new database(this);
+        foodDatabase = new foodDatabase(this);
 
         materialSearchBar.setHint("Search");
         materialSearchBar.setCardViewElevation(10);
@@ -89,16 +83,17 @@ public class FoodMenuActivity extends AppCompatActivity {
             }
         });
 
-        adapter = new SearchAdapter(this,database.getFood());
+        adapter = new SearchAdapter(this, foodDatabase.getFood());
+        mResultList.setAdapter(adapter);
     }
 
     private void startSearch(String text){
-        adapter = new SearchAdapter(this,database.getFoodbyName(text));
+        adapter = new SearchAdapter(this, foodDatabase.getFoodbyName(text));
         mResultList.setAdapter(adapter);
     }
 
     private void loadSuggestList() {
-        suggestList=database.getName();
+        suggestList= foodDatabase.getName();
         materialSearchBar.setLastSuggestions(suggestList);
     }
 

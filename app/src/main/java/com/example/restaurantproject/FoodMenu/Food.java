@@ -1,4 +1,4 @@
-package com.example.restaurantproject;
+package com.example.restaurantproject.FoodMenu;
 
 /*Class used to contain the details of each food item in the menu*/
 public class Food {

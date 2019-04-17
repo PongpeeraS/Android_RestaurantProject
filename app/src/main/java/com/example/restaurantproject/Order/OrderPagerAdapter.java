@@ -1,12 +1,12 @@
-package com.example.restaurantproject;
+package com.example.restaurantproject.Order;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 /*Adapter for the Pager object in OrderActivity, to support changing between Current & History tabs*/
-public class PagerAdapter extends FragmentPagerAdapter {
-    int numberOfTabs;
-    public PagerAdapter(FragmentManager fm, int NumOfTabs) {
+public class OrderPagerAdapter extends FragmentPagerAdapter {
+    private int numberOfTabs;
+    public OrderPagerAdapter(FragmentManager fm, int NumOfTabs) {
         super(fm);
         this.numberOfTabs = NumOfTabs;
     }

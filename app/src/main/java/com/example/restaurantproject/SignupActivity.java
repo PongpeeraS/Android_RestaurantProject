@@ -48,7 +48,7 @@ public class SignupActivity extends AppCompatActivity {
         });
 
         //On clicking 'Sign Up', the information from the fields will be used to create a new account
-        //on the Firebase authentication database.
+        //on the Firebase authentication foodDatabase.
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

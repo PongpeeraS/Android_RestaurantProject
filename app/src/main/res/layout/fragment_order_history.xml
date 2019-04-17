@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="60dp"
-    tools:context=".OrderHistoryFragment">
+    tools:context=".Order.OrderHistoryFragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_history"

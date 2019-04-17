@@ -1,8 +1,10 @@
-package com.example.restaurantproject;
+package com.example.restaurantproject.Order;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.example.restaurantproject.R;
 
 public class OrderDetailsActivity extends AppCompatActivity {
     TextView mOname;

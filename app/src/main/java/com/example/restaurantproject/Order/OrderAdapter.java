@@ -1,4 +1,4 @@
-package com.example.restaurantproject;
+package com.example.restaurantproject.Order;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,18 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.example.restaurantproject.R;
 
 public class OrderAdapter extends RecyclerView.Adapter<OrderViewHolder> {
     private String[] mDataset;
     private Context mContext;
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
-
-    // Provide a suitable constructor (depends on the kind of dataset)
     public OrderAdapter(Context context, String[] myDataset) {
         //TODO: Change dataset (including init)
         mDataset = myDataset;
@@ -38,7 +34,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderViewHolder> {
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(OrderViewHolder holder, final int position) {
-        // - get element from your dataset at this position
+        // - get element from the dataset at this position
         // - replace the contents of the view with that element
         /*TODO: Set details on each item, Example from SearchAdapter:
         OrderViewHolder.name.setText(foods.get(i).getName());
@@ -58,7 +54,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderViewHolder> {
         });
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
+    // Return the size of the dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
         return mDataset.length;
@@ -66,7 +62,6 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderViewHolder> {
 }
 
 class OrderViewHolder extends RecyclerView.ViewHolder {
-    // each data item is just a string in this case
     public TextView textView;
     LinearLayout parentLayout;
     public OrderViewHolder(View view) {

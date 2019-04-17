@@ -46,10 +46,10 @@
             android:text="@string/btn_reserve" />
 
         <Button
-            android:id="@+id/orderingButton"
+            android:id="@+id/ordersButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/btn_ordering" />
+            android:text="@string/btn_orders" />
 
         <Button
             android:id="@+id/couponButton"

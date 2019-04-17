@@ -19,7 +19,7 @@ import java.util.Locale;
 /*The main activity after logging in, access all functions from here*/
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth auth;
-    private Button btnLogOut, btnFmenu, btnReserve, btnOrdering, btnCoupon, btnSettings;
+    private Button btnLogOut, btnFmenu, btnReserve, btnOrders, btnCoupons, btnSettings;
     private TextView textUsername;
     private ImageView userPic;
 
@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
         userPic = findViewById(R.id.userPicView);
         btnFmenu = findViewById(R.id.fmenuButton);
         btnReserve = findViewById(R.id.reserveButton);
-        btnOrdering = findViewById(R.id.orderingButton);
-        btnCoupon = findViewById(R.id.couponButton);
+        btnOrders = findViewById(R.id.ordersButton);
+        btnCoupons = findViewById(R.id.couponButton);
         btnSettings = findViewById(R.id.settingsButton);
         btnLogOut = findViewById(R.id.logoutButton);
 
@@ -47,6 +47,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, FoodMenuActivity.class));
+            }
+        });
+        //Orders button: press to view the current delivery status & past deliveries
+        btnOrders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, OrderActivity.class));
+            }
+        });
+        //Coupons & Privileges button: press to view the current coupons & available promotions
+        btnCoupons.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, CouponActivity.class));
             }
         });
         //Settings button: press to see or change the app's settings

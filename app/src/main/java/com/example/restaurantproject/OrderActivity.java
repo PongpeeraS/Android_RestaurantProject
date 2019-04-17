@@ -4,6 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 
+import com.example.restaurantproject.Order.OrderPagerAdapter;
+import com.example.restaurantproject.R;
+
 /*Activity to view the user's current & previous orders (2 separate tabs)*/
 public class OrderActivity extends AppCompatActivity {
     @Override
@@ -19,7 +22,7 @@ public class OrderActivity extends AppCompatActivity {
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         /*Creating and setting the adapter for the pager*/
-        final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        final OrderPagerAdapter adapter = new OrderPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         /*Listeners for the the selected tab changes*/
