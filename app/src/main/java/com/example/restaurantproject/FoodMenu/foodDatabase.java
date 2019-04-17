@@ -6,26 +6,18 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 
+import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class foodDatabase extends SQLiteOpenHelper {
+public class foodDatabase extends SQLiteAssetHelper {
 
-    private static final String DB_NAME="Food3.db";
-    private static final int DB_VER=1;
+    private static final String DB_NAME = "Food3.db";
+    private static final int DB_VER = 1;
 
     public foodDatabase(Context context) {
         super(context, DB_NAME, null, DB_VER);
-    }
-
-    @Override
-    public void onCreate(SQLiteDatabase db) {
-
-    }
-
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
     }
 
     public List<Food> getFood() {
@@ -33,9 +25,7 @@ public class foodDatabase extends SQLiteOpenHelper {
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
 
         String[] sqlselect = {"id", "name", "price", "des"};
-        String tablename = "Food";
-
-        qb.setTables(tablename);
+        qb.setTables("Food");
         Cursor cursor = qb.query(db, sqlselect, null, null, null, null, null);
         List<Food> result = new ArrayList<>();
         if (cursor.moveToFirst()) {
@@ -56,7 +46,6 @@ public class foodDatabase extends SQLiteOpenHelper {
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
 
         String[] sqlselect = {"name"};
-
         qb.setTables("Food");
         Cursor cursor = qb.query(db,sqlselect,null,null,null,null,null);
         List<String> result = new ArrayList<>();
