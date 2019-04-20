@@ -1,6 +1,5 @@
 package com.example.restaurantproject;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -71,7 +70,7 @@ public class SettingsActivity extends AppCompatActivity {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
                                         dialog.cancel();
-                                        getActivity().setResult(Activity.RESULT_OK, null);
+                                        getActivity().setResult(RESULT_OK, null);
                                         getActivity().finish();
                                     }
                                 });

@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class SignupActivity extends AppCompatActivity {
     private EditText inputEmail, inputPassword, confirmPassword;
     private Button btnSignIn, btnSignUp;
+    private RelativeLayout layoutOverlay;
     private FirebaseAuth auth;
 
     @Override
@@ -33,6 +35,8 @@ public class SignupActivity extends AppCompatActivity {
         inputEmail = findViewById(R.id.email_regis);
         inputPassword = findViewById(R.id.password_regis);
         confirmPassword = findViewById(R.id.confirm_password);
+        layoutOverlay = findViewById(R.id.layout_overlay2);
+
 
         //Link to Login Page
         btnSignIn.setOnClickListener(new View.OnClickListener() {
@@ -43,11 +47,11 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
 
-        //On clicking 'Sign Up', the information from the fields will be used to create a new account
-        //on the Firebase authentication foodDatabase.
+        //On clicking 'Sign Up', the information from the fields will be used to create a new Firebase account
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                layoutOverlay.setVisibility(View.VISIBLE);
                 String email = inputEmail.getText().toString().trim();
                 String password = inputPassword.getText().toString().trim();
                 String conpass = confirmPassword.getText().toString().trim();
@@ -55,21 +59,25 @@ public class SignupActivity extends AppCompatActivity {
                 //Check the email field is empty or not
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(getApplicationContext(), getString(R.string.toast_noemail), Toast.LENGTH_SHORT).show();
+                    layoutOverlay.setVisibility(View.INVISIBLE);
                     return;
                 }
                 //Check the password field is empty or not
                 if (TextUtils.isEmpty(password)) {
                     Toast.makeText(getApplicationContext(), getString(R.string.toast_nopassword), Toast.LENGTH_SHORT).show();
+                    layoutOverlay.setVisibility(View.INVISIBLE);
                     return;
                 }
                 //Check the minimum of password
                 if (password.length() < 6) {
                     Toast.makeText(getApplicationContext(), getString(R.string.minimum_password), Toast.LENGTH_SHORT).show();
+                    layoutOverlay.setVisibility(View.INVISIBLE);
                     return;
                 }
                 //Check Confirmation
                 if(!conpass.equals(password)){
                     Toast.makeText(getApplicationContext(), getString(R.string.toast_wrongconpass), Toast.LENGTH_SHORT).show();
+                    layoutOverlay.setVisibility(View.INVISIBLE);
                     return;
                 }
                 //create user
@@ -81,9 +89,11 @@ public class SignupActivity extends AppCompatActivity {
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(SignupActivity.this, getString(R.string.toast_authfail)
                                                     + task.getException(), Toast.LENGTH_SHORT).show();
+                                    layoutOverlay.setVisibility(View.INVISIBLE);
                                 } else {
                                     Toast.makeText(SignupActivity.this, getString(R.string.toast_authpass),
                                             Toast.LENGTH_SHORT).show();
+                                    layoutOverlay.setVisibility(View.INVISIBLE);
                                     startActivity(new Intent(SignupActivity.this, MainActivity.class));
                                     finish();
                                 }

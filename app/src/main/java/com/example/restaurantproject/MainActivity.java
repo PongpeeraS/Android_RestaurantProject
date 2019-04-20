@@ -44,6 +44,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, FoodMenuActivity.class));
             }
         });
+        //Reserve button: press to view available tables and make a reservation
+        btnReserve.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ReserveActivity.class));
+            }
+        });
         //Orders button: press to view the current delivery status & past deliveries
         btnOrders.setOnClickListener(new View.OnClickListener() {
             @Override

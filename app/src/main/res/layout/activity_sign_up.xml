@@ -74,13 +74,27 @@
             android:textAllCaps="false"
             android:textColor="@color/input_register_hint"
             android:textSize="15sp" />
+
     </LinearLayout>
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_gravity="center|bottom"
-        android:layout_marginBottom="20dp"
-        android:visibility="gone" />
+    <RelativeLayout
+        android:id="@+id/layout_overlay2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_overlay"
+        android:visibility="invisible">
+
+        <ProgressBar
+            android:id="@+id/login_pbar2"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center|bottom"
+            android:layout_marginTop="200dp"
+            android:layout_marginEnd="135dp"
+            android:progressTint="@color/colorAccent2"
+            android:visibility="visible" />
+    </RelativeLayout>
+
 </android.support.design.widget.CoordinatorLayout>

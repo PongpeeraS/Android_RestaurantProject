@@ -50,4 +50,12 @@
     <string name="tab_history">History</string>
     <string name="text_lang_changed">The locale has been changed. The application will now close to change its language.</string>
     <string name="text_imgdesc">App image</string>
+    <string name="text_modify">Modify</string>
+    <string name="text_reserved">Reserved</string>
+    <string name="text_reserve">Reserve</string>
+    <string name="text_reserve_confirm">Are you sure to reserve this table?</string>
+    <string name="text_time">Time:</string>
+    <string name="text_updated">Updated</string>
+    <string name="text_cancel_confirm">Are you sure to cancel this table?</string>
+    <string name="text_reserve_password">Your password:</string>
 </resources>

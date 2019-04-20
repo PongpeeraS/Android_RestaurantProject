@@ -47,4 +47,12 @@
     <string name="text_imgdesc" translatable="false">รูปแอป</string>
     <string name="text_lang_changed">การตั้งค่าภาษามีการเปลี่ยนแปลง แอพพลิเคชั่นจะปิดเพื่อทำการเปลี่ยนภาษา</string>
     <string name="hint_email">อีเมล</string>
+    <string name="text_modify">แก้ไข</string>
+    <string name="text_reserved">จองแล้ว</string>
+    <string name="text_reserve">จอง</string>
+    <string name="text_reserve_confirm">ต้องการจะจองโต๊ะนี้หรือไม่?</string>
+    <string name="text_time">เวลา:</string>
+    <string name="text_updated">แก้ไขแล้ว</string>
+    <string name="text_cancel_confirm">ต้องการจะยกเลิกการจองโต๊ะนี้หรือไม่?</string>
+    <string name="text_reserve_password">รหัสยืนยันของคุณ:</string>
 </resources>
