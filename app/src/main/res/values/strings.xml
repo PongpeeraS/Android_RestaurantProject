@@ -46,4 +46,9 @@
     <string name="text_voucher_pass">Voucher code added!</string>
     <string name="text_voucher_fail">Invalid voucher code!</string>
     <string name="text_voucher_input">Input the voucher code:</string>
+    <string name="text_add">Add</string>
+    <string name="tab_current">Current</string>
+    <string name="tab_history">History</string>
+    <string name="text_lang_changed">The locale has been changed. The application will now close to change its language.</string>
+    <string name="text_imgdesc">App image</string>
 </resources>

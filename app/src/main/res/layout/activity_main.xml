@@ -35,30 +35,33 @@
 
         <Button
             android:id="@+id/fmenuButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/style_button"
             android:text="@string/btn_fmenu" />
 
         <Button
             android:id="@+id/reserveButton"
+            style="@style/style_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/btn_reserve" />
 
         <Button
             android:id="@+id/ordersButton"
+            style="@style/style_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/btn_orders" />
 
         <Button
             android:id="@+id/couponButton"
+            style="@style/style_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/btn_coupon" />
 
         <Button
             android:id="@+id/settingsButton"
+            style="@style/style_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/btn_settings" />
@@ -69,7 +72,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:backgroundTint="@android:color/holo_red_dark"
-            android:text="@string/btn_logout" />
+            android:text="@string/btn_logout"
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
 

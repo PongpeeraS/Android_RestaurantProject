@@ -1,10 +1,9 @@
 package com.example.restaurantproject;
 
 import android.content.DialogInterface;
-import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -34,8 +33,8 @@ public class CouponActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coupon);
 
-        mCouponRec = (RecyclerView) findViewById(R.id.recycler_coupon);
-        mAddCoupon = (Button) findViewById(R.id.addCouponButton);
+        mCouponRec = findViewById(R.id.recycler_coupon);
+        mAddCoupon = findViewById(R.id.addCouponButton);
         auth = FirebaseAuth.getInstance();
         mText = "";
 
@@ -61,7 +60,7 @@ public class CouponActivity extends AppCompatActivity {
                 builder.setView(input);
                 builder.setTitle(R.string.text_voucher_input);
                 // Set up the buttons
-                builder.setPositiveButton(getString(R.string.text_use), new DialogInterface.OnClickListener() {
+                builder.setPositiveButton(getString(R.string.text_add), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         mText = input.getText().toString();

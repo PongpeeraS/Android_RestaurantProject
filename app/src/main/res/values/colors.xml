@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#FF9800</color>
     <color name="colorPrimaryDark">#FF5722</color>
-    <color name="colorAccent">#f2fe71</color>
+    <color name="colorAccent">#222222</color>
 
     <color name="bg_login">#FF9800</color>
     <color name="bg_register">#FF9800</color>
@@ -17,4 +17,6 @@
     <color name="btn_login_bg">#eceef1</color>
     <color name="lbl_name">#333333</color>
     <color name="btn_logut_bg">#ff6861</color>
+    <color name="colorAccent2">#f2fe71</color>
+    <color name="bg_overlay">#C8FFFFFF</color>
 </resources>

@@ -3,7 +3,6 @@ package com.example.restaurantproject.Coupon;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
@@ -104,11 +103,4 @@ public class couponDatabase extends SQLiteOpenHelper {
                 new String[] {coupon.getuID(), coupon.getCode()});
     }
 
-    //Get the number of records in the table
-    public int getRecordsCount() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        int count = (int) DatabaseUtils.queryNumEntries(db, TABLE_NAME);
-        db.close();
-        return count;
-    }
 }

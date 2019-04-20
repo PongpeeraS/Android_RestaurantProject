@@ -1,8 +1,5 @@
 package com.example.restaurantproject;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -17,8 +14,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.util.Locale;
-
+/*Activity to create an account to use with the application*/
 public class SignupActivity extends AppCompatActivity {
     private EditText inputEmail, inputPassword, confirmPassword;
     private Button btnSignIn, btnSignUp;
@@ -34,8 +30,8 @@ public class SignupActivity extends AppCompatActivity {
 
         btnSignIn = findViewById(R.id.sign_in_button);
         btnSignUp = findViewById(R.id.sign_up_button);
-        inputEmail = findViewById(R.id.email);
-        inputPassword = findViewById(R.id.password);
+        inputEmail = findViewById(R.id.email_regis);
+        inputPassword = findViewById(R.id.password_regis);
         confirmPassword = findViewById(R.id.confirm_password);
 
         //Link to Login Page
@@ -96,16 +92,5 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
     }
-    @Override
-    protected void onStart() {
-        super.onStart();
-        /*Setting the activity's locale through saved SharedPreference*/
-        SharedPreferences sharedPref = this.getSharedPreferences("selectedLanguage", Context.MODE_PRIVATE);
-        String languageToLoad = sharedPref.getString("language", "");
-        Locale locale = new Locale(languageToLoad);//Set Selected Locale
-        Locale.setDefault(locale);//set new locale as default
-        Configuration config = new Configuration();//get Configuration
-        config.locale = locale;//set config locale as selected locale
-        this.getResources().updateConfiguration(config, this.getResources().getDisplayMetrics());
-    }
+
 }

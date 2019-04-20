@@ -41,4 +41,9 @@
     <string name="text_voucher_pass">เพิ่มโค้ดสำเร็จ!</string>
     <string name="text_voucher_fail">โค้ดไม่ถูกต้อง!</string>
     <string name="text_voucher_input">ใส่โค้ด Voucher:</string>
+    <string name="text_add">เพิ่ม</string>
+    <string name="tab_current">กำลังส่ง</string>
+    <string name="tab_history">ประวัติ</string>
+    <string name="text_imgdesc" translatable="false">รูปแอป</string>
+    <string name="text_lang_changed">การตั้งค่าภาษามีการเปลี่ยนแปลง แอพพลิเคชั่นจะปิดเพื่อทำการเปลี่ยนภาษา</string>
 </resources>

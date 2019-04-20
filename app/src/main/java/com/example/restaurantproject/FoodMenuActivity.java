@@ -28,7 +28,7 @@ public class FoodMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_menu);
 
-        mResultList = (RecyclerView) findViewById(R.id.recycler_search);
+        mResultList = findViewById(R.id.recycler_search);
 
         // Creating & setting a linear layout manager & adapter for the RecyclerView
         linearLayoutManager = new LinearLayoutManager(this);
@@ -37,7 +37,7 @@ public class FoodMenuActivity extends AppCompatActivity {
         mResultList.setHasFixedSize(true);
         mResultList.setAdapter(adapter);
 
-        materialSearchBar = (MaterialSearchBar)findViewById(R.id.search_bar);
+        materialSearchBar = findViewById(R.id.search_bar);
 
         foodDatabase = new foodDatabase(this);
 

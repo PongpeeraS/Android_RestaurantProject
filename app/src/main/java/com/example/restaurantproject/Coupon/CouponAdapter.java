@@ -49,12 +49,12 @@ public class CouponAdapter extends RecyclerView.Adapter<CouponViewHolder> {
             public void onClick(View v) {
                 /*Dialog is used here for users to view info & use the coupon*/
                 AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-                String s1 = mContext.getString(R.string.text_cname)+": "+c.getName();
-                String s2 = mContext.getString(R.string.text_cdesc)+": "+c.getDesc();
-                String s3 = mContext.getString(R.string.text_cdate)+": "+c.getEnddate();
-                String s4 = mContext.getString(R.string.text_ccode)+": "+c.getCode();
-                String s5 = mContext.getString(R.string.text_cnumuse)+": "+c.getNumOfUses();
-                builder.setMessage(s1+"\n"+s2+"\n"+s3+"\n"+s4+"\n"+s5);
+                String s1 = mContext.getString(R.string.text_cname)+":\n"+c.getName();
+                String s2 = mContext.getString(R.string.text_cdesc)+":\n"+c.getDesc();
+                String s3 = mContext.getString(R.string.text_cdate)+":\n"+c.getEnddate();
+                String s4 = mContext.getString(R.string.text_ccode)+":\n"+c.getCode();
+                String s5 = mContext.getString(R.string.text_cnumuse)+":\n"+c.getNumOfUses();
+                builder.setMessage(s1+"\n\n"+s2+"\n\n"+s3+"\n\n"+s4+"\n\n"+s5);
                 // Positive button = use coupon (i.e. remaining uses -1 or delete coupon)
                 builder.setPositiveButton(mContext.getString(R.string.text_use), new DialogInterface.OnClickListener() {
                     @Override
@@ -92,6 +92,7 @@ public class CouponAdapter extends RecyclerView.Adapter<CouponViewHolder> {
 class CouponViewHolder extends RecyclerView.ViewHolder {
     public TextView cname, cdate;
     LinearLayout parentLayout;
+
     public CouponViewHolder(View view) {
         super(view);
         parentLayout = itemView.findViewById(R.id.layout_coupon);

@@ -17,16 +17,18 @@
 
 
         <ImageView
+            android:id="@+id/img_logo"
             android:layout_width="@dimen/logo_w_h"
             android:layout_height="@dimen/logo_w_h"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="30dp"
+            android:contentDescription="@string/text_imgdesc"
             android:src="@mipmap/ic_launcher" />
 
         <!-- Login Button -->
 
         <EditText
-            android:id="@+id/email2"
+            android:id="@+id/email_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -34,7 +36,7 @@
             android:inputType="textEmailAddress" />
 
         <EditText
-            android:id="@+id/editText6"
+            android:id="@+id/password_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -43,12 +45,12 @@
 
         <Button
             android:id="@+id/btn_login"
+            style="@style/style_button"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
-            android:background="@color/bg_login"
-            android:text="@string/btn_login"
-            android:textColor="@android:color/black" />
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:text="@string/btn_login" />
 
         <!-- Link to Login Screen -->
 
@@ -61,14 +63,27 @@
             android:text="@string/btn_link_to_register"
             android:textAllCaps="false"
             android:textColor="@color/input_register_hint"
-            android:textSize="15dp" />
+            android:textSize="15sp" />
+
     </LinearLayout>
 
-    <ProgressBar
-        android:id="@+id/login_pbar"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_gravity="center|bottom"
-        android:layout_marginBottom="20dp"
-        android:visibility="gone" />
+    <RelativeLayout
+        android:id="@+id/layout_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_overlay"
+        android:visibility="invisible">
+
+        <ProgressBar
+            android:id="@+id/login_pbar"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center|bottom"
+            android:layout_marginTop="200dp"
+            android:layout_marginEnd="135dp"
+            android:progressTint="@color/colorAccent2"
+            android:visibility="visible" />
+    </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>

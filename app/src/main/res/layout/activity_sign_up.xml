@@ -17,14 +17,16 @@
 
 
         <ImageView
+            android:id="@+id/img_logo"
             android:layout_width="@dimen/logo_w_h"
             android:layout_height="@dimen/logo_w_h"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="30dp"
+            android:contentDescription="@string/text_imgdesc"
             android:src="@mipmap/ic_launcher" />
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/email_regis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -32,7 +34,7 @@
             android:inputType="textEmailAddress" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/password_regis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -53,7 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="@color/bg_register"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:text="@string/action_sign_in_short"
             android:textColor="@android:color/white"
             android:textStyle="bold" />
@@ -71,7 +73,7 @@
             android:text="@string/btn_link_to_login"
             android:textAllCaps="false"
             android:textColor="@color/input_register_hint"
-            android:textSize="15dp" />
+            android:textSize="15sp" />
     </LinearLayout>
 
     <ProgressBar
