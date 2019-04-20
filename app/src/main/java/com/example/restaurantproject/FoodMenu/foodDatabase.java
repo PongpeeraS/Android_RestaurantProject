@@ -13,7 +13,7 @@ import java.util.List;
 
 public class foodDatabase extends SQLiteAssetHelper {
 
-    private static final String DB_NAME = "Food3.db";
+    private static final String DB_NAME = "Food.db";
     private static final int DB_VER = 1;
 
     public foodDatabase(Context context) {

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <ListPreference
         android:defaultValue="en"
         android:entries="@array/language_option"
         android:entryValues="@array/language_code"
-        android:icon="@android:drawable/ic_menu_compass"
+        android:icon="@drawable/ic_language"
         android:key="pref_language"
         android:summary="(Default language)"
         android:title="@string/text_language" />
