@@ -3,7 +3,7 @@
     <string name="action_sign_in_short">Register</string>
     <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
     <string name="auth_failed">Authentication failed, check your email and password or sign up</string>
-    <string name="hint_email" translatable="false">Email</string>
+    <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
     <string name="btn_login">LOGIN</string>
     <string name="btn_link_to_register">Not a member? Get registered in My Restaurant here!</string>
@@ -30,7 +30,6 @@
     <string name="toast_authfail">Authentication failed.</string>
     <string name="toast_authpass">Account registered! Automatically logging in...</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="text_coupon">Coupons</string>
     <string name="text_priv">Current Promotions</string>

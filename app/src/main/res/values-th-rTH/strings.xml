@@ -46,4 +46,5 @@
     <string name="tab_history">ประวัติ</string>
     <string name="text_imgdesc" translatable="false">รูปแอป</string>
     <string name="text_lang_changed">การตั้งค่าภาษามีการเปลี่ยนแปลง แอพพลิเคชั่นจะปิดเพื่อทำการเปลี่ยนภาษา</string>
+    <string name="hint_email">อีเมล</string>
 </resources>
