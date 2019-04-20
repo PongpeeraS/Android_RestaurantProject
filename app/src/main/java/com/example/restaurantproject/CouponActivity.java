@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Random;
 
-/*Activity for the user to view their available couons & promotions
+/*Activity for the user to view their available coupons & promotions
     **Coupons are meant to be used only at the restaurant before payment(i.e. not for deliveries) */
 public class CouponActivity extends AppCompatActivity {
     private RecyclerView mCouponRec;
@@ -59,6 +59,7 @@ public class CouponActivity extends AppCompatActivity {
                 final EditText input = new EditText(CouponActivity.this);
                 builder.setView(input);
                 builder.setTitle(R.string.text_voucher_input);
+
                 // Set up the buttons
                 builder.setPositiveButton(getString(R.string.text_add), new DialogInterface.OnClickListener() {
                     @Override
@@ -73,10 +74,12 @@ public class CouponActivity extends AppCompatActivity {
                                 int index = (int) (rnd.nextFloat() * SALTCHARS.length());
                                 salt.append(SALTCHARS.charAt(index));
                             }
+
                             //Insert the coupon into the database
                             couponDatabase.insertCoupon(new Coupon(auth.getCurrentUser().getUid(),
                                     "Example Discount", "50% off on Fried Chicken",
                                     "31-4-2019", salt.toString(), 3));
+
                             //Display text confirmation & update RecyclerView
                             Toast.makeText(CouponActivity.this, getString(R.string.text_voucher_pass),
                                     Toast.LENGTH_SHORT).show();
