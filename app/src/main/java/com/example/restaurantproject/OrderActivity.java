@@ -1,4 +1,5 @@
 package com.example.restaurantproject;
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +13,9 @@ public class OrderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
+        setTitle(getString(R.string.btn_orders));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         TabLayout tabLayout = findViewById(R.id.tabLayout_order);
         final ViewPager viewPager = findViewById(R.id.pager);
 
@@ -31,14 +35,17 @@ public class OrderActivity extends AppCompatActivity {
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
             }
-
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
             }
-
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
+    }
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }

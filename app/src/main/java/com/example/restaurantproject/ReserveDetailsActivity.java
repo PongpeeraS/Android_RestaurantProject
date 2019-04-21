@@ -18,7 +18,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.restaurantproject.Reserve.TimePickerFragment;
-import com.example.restaurantproject.Reserve.reserveDatabase;
+import com.example.restaurantproject.Reserve.ReserveDatabase;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Calendar;
@@ -28,12 +28,12 @@ import java.util.Random;
 public class ReserveDetailsActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
     private static final String tag = "Detail";
     private TextView date, time;
-    private Button confirm, cancel;
+    private Button confirm;
     private DatePickerDialog.OnDateSetListener d;
     private FirebaseAuth auth = FirebaseAuth.getInstance();
     public static ReserveActivity test = new ReserveActivity();
     public static boolean[] id = {false,false,false,false,false,false};
-    reserveDatabase reserveDatabase;
+    ReserveDatabase reserveDatabase;
     public static String pass;
 
     //Set text for time picker
@@ -52,10 +52,12 @@ public class ReserveDetailsActivity extends AppCompatActivity implements TimePic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserve_detail);
+        setTitle(R.string.title_reserve_add);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         date = findViewById(R.id.Date);
         confirm = findViewById(R.id.Confirm);
-        cancel = findViewById(R.id.Cancel);
-        reserveDatabase = new reserveDatabase(this);
+        reserveDatabase = new ReserveDatabase(this);
         time = findViewById(R.id.Time);
 
         //Click date text for select date
@@ -116,7 +118,6 @@ public class ReserveDetailsActivity extends AppCompatActivity implements TimePic
                                 time.getText().toString(), auth.getCurrentUser().getEmail(), pass);
                         setResult(RESULT_OK, null);
                         finish();
-                        //TODO remove cancel(BACK) button to back button?
                     }
                 });
                 //Click no, do nothing
@@ -127,13 +128,6 @@ public class ReserveDetailsActivity extends AppCompatActivity implements TimePic
                     }
                 });
                 builder.show();
-            }
-        });
-        //Cancel button for go back
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
             }
         });
     }
@@ -159,11 +153,14 @@ public class ReserveDetailsActivity extends AppCompatActivity implements TimePic
         // this will convert any number sequence into 6 character.
         return String.format("%06d", number);
     }
-
     public String getPass()
     {
         return pass;
     }
-
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
+    }
 }
 

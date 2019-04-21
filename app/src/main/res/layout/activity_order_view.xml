@@ -16,7 +16,11 @@
             android:id="@+id/order_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:text="TextView"
+            android:textColor="@android:color/black"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -24,25 +28,42 @@
             android:id="@+id/order_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="TextView"
+            android:textColor="@android:color/black" />
 
         <TextView
-            android:id="@+id/order_uid"
+            android:id="@+id/order_amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="TextView"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/order_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="TextView"
+            android:textColor="@android:color/black" />
 
         <com.google.android.gms.maps.MapView
             android:id="@+id/mapView"
             android:layout_width="match_parent"
-            android:layout_height="225dp" />
+            android:layout_height="225dp"
+            android:layout_margin="10dp" />
 
         <Button
             android:id="@+id/recievebtn"
+            style="@style/app_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/recieve_button"
-            tools:text="@string/recieve_button" />
+            android:text="@string/receive_button"
+            tools:text="@string/receive_button" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

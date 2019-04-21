@@ -39,8 +39,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 auth.signOut();
-                startActivity(new Intent(LoginActivity.this, SignupActivity.class));
-                finish();
+                startActivityForResult(new Intent(LoginActivity.this, SignupActivity.class), 2);
             }
         });
 
@@ -85,4 +84,13 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    //Used when the signup is successful, automatically finish this activity
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // If the language has been changed in SettingsActivity, a RESULT_OK will be sent back
+        // in order to also finish this activity and close the application
+        if (requestCode == 2) {
+            if(resultCode == RESULT_OK) { finish(); }
+        }
+    }
 }

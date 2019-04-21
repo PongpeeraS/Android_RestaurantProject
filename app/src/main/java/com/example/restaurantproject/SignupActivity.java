@@ -26,6 +26,7 @@ public class SignupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+        setTitle(R.string.title_signup);
 
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
@@ -95,6 +96,7 @@ public class SignupActivity extends AppCompatActivity {
                                             Toast.LENGTH_SHORT).show();
                                     layoutOverlay.setVisibility(View.INVISIBLE);
                                     startActivity(new Intent(SignupActivity.this, MainActivity.class));
+                                    setResult(RESULT_OK,null);
                                     finish();
                                 }
                             }
@@ -102,5 +104,4 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
     }
-
 }

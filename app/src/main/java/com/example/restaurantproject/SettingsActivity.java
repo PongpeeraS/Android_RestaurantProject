@@ -20,6 +20,9 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getFragmentManager().beginTransaction().replace(android.R.id.content, new LanguagePreferenceFragment()).commit();
         setTitle(R.string.btn_settings);
+        /*In every activity other than Main, Login & Signup, the action bar will contain
+        * a back button on the top-left corner to go back to the parent activity.*/
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     /*Fragment of the activity to change the app's language*/
@@ -82,5 +85,10 @@ public class SettingsActivity extends AppCompatActivity {
             });
         }
     }
-
+    //On pressing back button, return to parent activity
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
+    }
 }

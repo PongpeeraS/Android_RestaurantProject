@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.restaurantproject.Reserve.reserveDatabase;
+import com.example.restaurantproject.Reserve.ReserveDatabase;
 import com.google.firebase.auth.FirebaseAuth;
 
 /*This activity is used to view and reserve tables*/
@@ -17,17 +17,20 @@ public class ReserveActivity extends AppCompatActivity {
     private FirebaseAuth auth = FirebaseAuth.getInstance();
     public static String name;
     public static int id;
-    reserveDatabase reserveDatabase;
+    ReserveDatabase reserveDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //set variable
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserve);
+        setTitle(getString(R.string.btn_reserve));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         T1 = findViewById(R.id.Table1); T2 = findViewById(R.id.Table2);
         T3 = findViewById(R.id.Table3); T4 = findViewById(R.id.Table4);
         T5 = findViewById(R.id.Table5); T6 = findViewById(R.id.Table6);
-        reserveDatabase = new reserveDatabase(this);
+        reserveDatabase = new ReserveDatabase(this);
 
         // Check if someone reserve this table
         Cursor res1 = reserveDatabase.getTable("Table_1");
@@ -245,4 +248,9 @@ public class ReserveActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
+    }
 }

@@ -25,7 +25,7 @@
     <string name="toast_noemail">กรุณาใส่ Email!</string>
     <string name="toast_nopassword">กรุณาใส่รหัสผ่าน!</string>
     <string name="toast_wrongconpass">รหัสผ่านกับรหัสผ่านยืนยันไม่ตรงกัน!</string>
-    <string name="toast_authpass">สร้างบัญชีแล้ว กำลังเข้าสู่ระบบ...</string>
+    <string name="toast_authpass">สร้างบัญชีแล้ว กำลังเข้าสู่ระบบ</string>
     <string name="toast_authfail">สร้างบัญชีล้มเหลว</string>
     <string name="text_coupon" translatable="false">คูปองที่มีอยู่</string>
     <string name="text_priv">โปรโมชั่นที่มีอยู่</string>
@@ -60,6 +60,19 @@
     <string name="label_phone">เบอร์โทรศัพท์ :</string>
     <string name="btn_confirm">ยืนยัน</string>
     <string name="title_activity_order_view">รายการสั่ง</string>
-    <string name="recieve_button">ได้รับสินค้าเรียบร้อย</string>
+    <string name="receive_button">ได้รับสินค้าเรียบร้อย</string>
     <string name="buy_butt">สั่งซื้อ</string>
+    <string name="text_order_added">เพิ่มรายการสั่งอาหารสำเร็จ!</string>
+    <string name="label_total_price">ราคาทั้งหมด:</string>
+    <string name="text_baht">บาท</string>
+    <string name="title_home">หน้าหลัก</string>
+    <string name="title_order_confirm">ยืนยันการสั่งอาหาร</string>
+    <string name="title_order_details">รายละเอียดการสั่งอาหาร</string>
+    <string name="title_reserve_add">จองโต๊ะ</string>
+    <string name="title_reserve_modify">แก้ไขรายละเอียดการจอง</string>
+    <string name="title_signup">สมัครสมาชิก</string>
+    <string name="text_selectdate">เลือกวันที่จะจอง</string>
+    <string name="text_selecttime">เลือกเวลาที่จะจอง</string>
+    <string name="text_cancel_reservation">ยกเลิกการจอง</string>
+    <string name="text_update">แก้ไขการจอง</string>
 </resources>

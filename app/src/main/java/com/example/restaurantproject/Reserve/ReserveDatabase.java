@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 /*Database class to contain reservation status*/
-public class reserveDatabase extends SQLiteOpenHelper {
+public class ReserveDatabase extends SQLiteOpenHelper {
     //declare variable
     private static final String DATABASE_NAME = "Reserve.db";
     private static final String TABLE_NAME = "Reserve_table";
@@ -19,7 +19,7 @@ public class reserveDatabase extends SQLiteOpenHelper {
     private static final String COL5 = "PASSWORD";
 
     //Constructor
-    public reserveDatabase(Context context) {
+    public ReserveDatabase(Context context) {
         super (context,DATABASE_NAME,null,1);
         SQLiteDatabase db = this.getWritableDatabase();
     }

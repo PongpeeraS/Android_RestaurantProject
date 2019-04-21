@@ -7,52 +7,59 @@
 
     <TextView
         android:id="@+id/Date"
-        android:layout_width="308dp"
-        android:layout_height="81dp"
-        android:layout_marginTop="128dp"
-        android:hint="Select date"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
 
+        android:layout_marginStart="51dp"
+
+
+        android:layout_marginTop="110dp"
+        android:layout_marginEnd="51dp"
+        android:layout_marginBottom="103dp"
+        android:background="@android:color/holo_orange_light"
+        android:text="@string/text_selectdate"
         android:textAlignment="center"
-
-
-        android:textSize="50sp"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/Time"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/Time"
-        android:layout_width="321dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="312dp"
-        android:text="Select time"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="87dp"
+        android:background="@android:color/holo_orange_dark"
+        android:text="@string/text_selecttime"
         android:textAlignment="center"
+        android:textColor="@android:color/black"
         android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/Confirm"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/Date" />
 
     <Button
         android:id="@+id/Confirm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="45dp"
-        android:layout_marginBottom="66dp"
+        style="@style/app_button"
+        android:layout_width="222dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="180dp"
         android:background="@color/bg_login"
-        android:text="Confirm"
+        android:text="@string/btn_confirm"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Time" />
 
-    <Button
-        android:id="@+id/Cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="51dp"
-        android:layout_marginBottom="66dp"
-        android:text="Cancel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

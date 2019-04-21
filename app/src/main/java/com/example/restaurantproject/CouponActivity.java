@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.example.restaurantproject.Coupon.Coupon;
 import com.example.restaurantproject.Coupon.CouponAdapter;
-import com.example.restaurantproject.Coupon.couponDatabase;
+import com.example.restaurantproject.Coupon.CouponDatabase;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Random;
@@ -23,7 +23,7 @@ import java.util.Random;
 public class CouponActivity extends AppCompatActivity {
     private RecyclerView mCouponRec;
     private LinearLayoutManager linearLayoutManager;
-    private couponDatabase couponDatabase;
+    private CouponDatabase couponDatabase;
     private Button mAddCoupon;
     private String mText;
     private FirebaseAuth auth;
@@ -32,6 +32,8 @@ public class CouponActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coupon);
+        setTitle(getString(R.string.btn_coupon));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mCouponRec = findViewById(R.id.recycler_coupon);
         mAddCoupon = findViewById(R.id.addCouponButton);
@@ -44,7 +46,7 @@ public class CouponActivity extends AppCompatActivity {
         mCouponRec.setLayoutManager(linearLayoutManager);
         mCouponRec.setHasFixedSize(true);
         // Initializing the database & its adapter
-        couponDatabase = new couponDatabase(this);
+        couponDatabase = new CouponDatabase(this);
         final CouponAdapter adapter = new CouponAdapter(this,
                 couponDatabase.getCoupons(auth.getCurrentUser().getUid()), couponDatabase);
         mCouponRec.setAdapter(adapter);
@@ -102,5 +104,10 @@ public class CouponActivity extends AppCompatActivity {
             }
         });
 
+    }
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }

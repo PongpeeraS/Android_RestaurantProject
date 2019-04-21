@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*SQLite database class to contain the users' coupons*/
-public class couponDatabase extends SQLiteOpenHelper {
+public class CouponDatabase extends SQLiteOpenHelper {
     private static final String DB_NAME = "Coupons.db";
     private static final int DB_VER = 1;
     private static final String TABLE_NAME = "Coupon";
@@ -22,7 +22,7 @@ public class couponDatabase extends SQLiteOpenHelper {
     private static final String KEY_CODE = "code"; //coupon's code to use
     private static final String KEY_NUMOFUSES = "numOfUses"; //coupon's remaining uses
 
-    public couponDatabase(Context context) {
+    public CouponDatabase(Context context) {
         super(context, DB_NAME, null, DB_VER);
     }
 

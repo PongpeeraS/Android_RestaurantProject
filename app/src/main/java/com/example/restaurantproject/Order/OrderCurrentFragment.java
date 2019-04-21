@@ -8,17 +8,26 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.restaurantproject.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 /*First fragment of the OrderActivity, displays the current orders*/
 public class OrderCurrentFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
+    private OrderDatabase orderDatabase;
+    private FirebaseAuth auth;
+    private String uID;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_order_current, container, false);
-        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_current);
+        recyclerView = view.findViewById(R.id.recycler_current);
+
+        // Initializing database & Firebase uID
+        orderDatabase = new OrderDatabase(this.getContext());
+        auth = FirebaseAuth.getInstance();
+        uID = auth.getCurrentUser().getUid();
 
         // Creating & setting a linear layout manager for the RecyclerView
         layoutManager = new LinearLayoutManager(this.getContext());
@@ -26,8 +35,7 @@ public class OrderCurrentFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
 
         // Specifying the Orders adapter
-        String[] str = new String[]{"Alpha", "Beta"};
-        mAdapter = new OrderAdapter(this.getContext(), str); //TODO: CHANGE NULL INTO CURRENT ORDERS DATA!
+        mAdapter = new OrderAdapter(this.getContext(), orderDatabase.getCurrentOrder(uID));
         recyclerView.setAdapter(mAdapter);
 
         // Inflate the layout for this fragment

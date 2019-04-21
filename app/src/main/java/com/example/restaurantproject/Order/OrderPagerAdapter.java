@@ -10,7 +10,6 @@ public class OrderPagerAdapter extends FragmentPagerAdapter {
         super(fm);
         this.numberOfTabs = NumOfTabs;
     }
-
     /*Creates fragment once a tab position has been selected in OrderActivity*/
     @Override
     public Fragment getItem(int position) {
@@ -23,7 +22,6 @@ public class OrderPagerAdapter extends FragmentPagerAdapter {
                 return null;
         }
     }
-
     @Override
     public int getCount() {
         return numberOfTabs;

@@ -48,13 +48,13 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="false"
                 android:cropToPadding="false"
-                android:src="@drawable/food_menu_btn_100" />
+                android:src="@drawable/btn_food_menu" />
 
             <ImageButton
                 android:id="@+id/reserveButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/table_reserve_btn_100" />
+                android:src="@drawable/btn_table_reserve" />
         </LinearLayout>
 
         <LinearLayout
@@ -66,13 +66,13 @@
                 android:id="@+id/ordersButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/order_btn_100" />
+                android:src="@drawable/btn_order" />
 
             <ImageButton
                 android:id="@+id/couponButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/coupon_btn_100" />
+                android:src="@drawable/btn_coupon" />
         </LinearLayout>
 
         <LinearLayout
@@ -84,13 +84,13 @@
                 android:id="@+id/settingsButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/settings_btn_100" />
+                android:src="@drawable/btn_settings" />
 
             <ImageButton
                 android:id="@+id/logoutButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/logout_btn_100" />
+                android:src="@drawable/btn_logout" />
         </LinearLayout>
     </LinearLayout>
     </LinearLayout>

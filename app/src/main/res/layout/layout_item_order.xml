@@ -41,13 +41,12 @@
                 android:text="(Order Date)" />
 
             <TextView
-                android:id="@+id/odes"
+                android:id="@+id/oamount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|start"
                 android:layout_marginStart="10dp"
-                android:text="(???)"
-                android:textStyle="italic" />
+                android:text="(???)" />
         </LinearLayout>
 
 

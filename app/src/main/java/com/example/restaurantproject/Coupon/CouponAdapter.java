@@ -18,9 +18,9 @@ import java.util.List;
 public class CouponAdapter extends RecyclerView.Adapter<CouponViewHolder> {
     private List<Coupon> mDataset;
     private Context mContext;
-    private couponDatabase couponDatabase;
+    private CouponDatabase couponDatabase;
 
-    public CouponAdapter(Context mContext, List<Coupon> mDataset, couponDatabase couponDatabase) {
+    public CouponAdapter(Context mContext, List<Coupon> mDataset, CouponDatabase couponDatabase) {
         this.mDataset = mDataset;
         this.mContext = mContext;
         this.couponDatabase = couponDatabase;
@@ -81,7 +81,6 @@ public class CouponAdapter extends RecyclerView.Adapter<CouponViewHolder> {
             }
         });
     }
-
     // Return the size of the dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {

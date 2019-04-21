@@ -19,7 +19,8 @@
             android:id="@+id/food_img"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:src="@drawable/friedrice"
+            android:contentDescription="food_img"
+            android:src="@drawable/foodimg_friedrice"
             app:srcCompat="@mipmap/ic_launcher_round" />
         
         <LinearLayout
@@ -62,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/bg_login"
-            android:text="Buy"
+            android:text="@string/buy_butt"
             android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:textStyle="bold" />
 

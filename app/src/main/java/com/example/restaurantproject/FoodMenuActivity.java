@@ -8,7 +8,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 
 import com.example.restaurantproject.FoodMenu.SearchAdapter;
-import com.example.restaurantproject.FoodMenu.foodDatabase;
+import com.example.restaurantproject.FoodMenu.FoodDatabase;
 import com.mancj.materialsearchbar.MaterialSearchBar;
 
 import java.util.ArrayList;
@@ -18,7 +18,8 @@ import java.util.List;
 public class FoodMenuActivity extends AppCompatActivity {
     private LinearLayoutManager linearLayoutManager;
     private RecyclerView mResultList;
-    private foodDatabase foodDatabase;
+    private FoodDatabase foodDatabase;
+    private String uID;
     SearchAdapter adapter;
 
     MaterialSearchBar materialSearchBar;
@@ -27,9 +28,11 @@ public class FoodMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_menu);
+        setTitle(getString(R.string.btn_fmenu));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        uID = getIntent().getStringExtra("uID");
         mResultList = findViewById(R.id.recycler_search);
-
         // Creating & setting a linear layout manager & adapter for the RecyclerView
         linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -39,7 +42,7 @@ public class FoodMenuActivity extends AppCompatActivity {
 
         materialSearchBar = findViewById(R.id.search_bar);
 
-        foodDatabase = new foodDatabase(this);
+        foodDatabase = new FoodDatabase(this);
 
         materialSearchBar.setHint("Search");
         materialSearchBar.setCardViewElevation(10);
@@ -55,15 +58,10 @@ public class FoodMenuActivity extends AppCompatActivity {
                 }
                 materialSearchBar.setLastSuggestions(suggest);
             }
-
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
             @Override
-            public void afterTextChanged(Editable s) {
-
-            }
+            public void afterTextChanged(Editable s) { }
         });
         materialSearchBar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
             @Override
@@ -78,17 +76,15 @@ public class FoodMenuActivity extends AppCompatActivity {
                 startSearch(text.toString());
             }
             @Override
-            public void onButtonClicked(int buttonCode) {
-
-            }
+            public void onButtonClicked(int buttonCode) { }
         });
 
-        adapter = new SearchAdapter(this, foodDatabase.getFood());
+        adapter = new SearchAdapter(this, foodDatabase.getFood(),uID);
         mResultList.setAdapter(adapter);
     }
 
     private void startSearch(String text){
-        adapter = new SearchAdapter(this, foodDatabase.getFoodbyName(text));
+        adapter = new SearchAdapter(this, foodDatabase.getFoodbyName(text),uID);
         mResultList.setAdapter(adapter);
     }
 
@@ -96,5 +92,9 @@ public class FoodMenuActivity extends AppCompatActivity {
         suggestList= foodDatabase.getName();
         materialSearchBar.setLastSuggestions(suggestList);
     }
-
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
+    }
 }

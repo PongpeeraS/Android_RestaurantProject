@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 /*The main activity after logging in, access all functions from here*/
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth auth;
-    private Button btnLogOut, btnFmenu, btnReserve, btnOrders, btnCoupons, btnSettings;
+    private ImageButton btnLogOut, btnFmenu, btnReserve, btnOrders, btnCoupons, btnSettings;
     private TextView textUsername;
 
     @SuppressLint("SetTextI18n")
@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle(R.string.title_home);
         //TEST Email: t@m.com Pass: 12345678
         auth = FirebaseAuth.getInstance();
         textUsername = findViewById(R.id.text_username);
@@ -41,7 +42,9 @@ public class MainActivity extends AppCompatActivity {
         btnFmenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, FoodMenuActivity.class));
+                Intent intent = new Intent(MainActivity.this, FoodMenuActivity.class);
+                intent.putExtra("uID",auth.getCurrentUser().getUid());
+                startActivity(intent);
             }
         });
         //Reserve button: press to view available tables and make a reservation
@@ -105,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         // If the language has been changed in SettingsActivity, a RESULT_OK will be sent back
         // in order to also finish this activity and close the application
         if (requestCode == 1) {
-            if(resultCode == Activity.RESULT_OK) { finish(); }
+            if(resultCode == RESULT_OK) { finish(); }
         }
     }
 }

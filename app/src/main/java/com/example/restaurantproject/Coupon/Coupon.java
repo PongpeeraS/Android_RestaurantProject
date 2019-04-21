@@ -1,5 +1,6 @@
 package com.example.restaurantproject.Coupon;
 
+/*Class to contain a user's coupons*/
 public class Coupon {
     private String uID;
     private String name;

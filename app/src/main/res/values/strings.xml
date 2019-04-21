@@ -28,7 +28,7 @@
     <string name="toast_nopassword">Enter password!</string>
     <string name="toast_wrongconpass">Wrong password confirmation!</string>
     <string name="toast_authfail">Authentication failed.</string>
-    <string name="toast_authpass">Account registered! Automatically logging in...</string>
+    <string name="toast_authpass">Account registered! Automatically logging in</string>
 
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="text_coupon">Coupons</string>
@@ -59,10 +59,23 @@
     <string name="text_cancel_confirm">Are you sure to cancel this table?</string>
     <string name="text_reserve_password">Your password:</string>
     <string name="label_amount">Amount :</string>
-    <string name="label_address">Adress :</string>
+    <string name="label_address">Address :</string>
     <string name="label_phone">Phone :</string>
     <string name="btn_confirm">Confirm</string>
     <string name="title_activity_order_view">Order</string>
-    <string name="recieve_button">Receive</string>
+    <string name="receive_button">Receive</string>
     <string name="buy_butt">Buy</string>
+    <string name="text_order_added">Order added!</string>
+    <string name="label_total_price">Total price:</string>
+    <string name="text_baht">baht</string>
+    <string name="title_home">Home</string>
+    <string name="title_order_confirm">Order confirmation</string>
+    <string name="title_order_details">Order Details</string>
+    <string name="title_reserve_add">Reserve a Table</string>
+    <string name="title_reserve_modify">Modify Reservation</string>
+    <string name="title_signup">Sign Up</string>
+    <string name="text_selectdate">Select Date</string>
+    <string name="text_selecttime">Select Time</string>
+    <string name="text_update">Update</string>
+    <string name="text_cancel_reservation">Cancel Reservation</string>
 </resources>

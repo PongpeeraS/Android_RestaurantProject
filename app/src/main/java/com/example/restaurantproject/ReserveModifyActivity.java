@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -21,8 +20,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.restaurantproject.Reserve.TimePickerFragment;
-import com.example.restaurantproject.Reserve.reserveDatabase;
-import com.google.firebase.auth.FirebaseAuth;
+import com.example.restaurantproject.Reserve.ReserveDatabase;
 
 import java.util.Calendar;
 
@@ -30,9 +28,9 @@ import java.util.Calendar;
 public class ReserveModifyActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
     private static final String tag = "Detail";
     private TextView datem, timem, pass;
-    private Button update, abandon, back;
+    private Button update, abandon;
     private DatePickerDialog.OnDateSetListener d;
-    reserveDatabase reserveDatabase;
+    ReserveDatabase reserveDatabase;
     private ReserveActivity test = new ReserveActivity();
     private ReserveDetailsActivity detail = new ReserveDetailsActivity();
     //Set text of time picker
@@ -52,12 +50,14 @@ public class ReserveModifyActivity extends AppCompatActivity implements TimePick
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserve_modify);
+        setTitle(R.string.title_reserve_modify);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         datem = findViewById(R.id.datem);
         timem = findViewById(R.id.timem);
         update = findViewById(R.id.Update);
         abandon = findViewById(R.id.Abandon);
-        back = findViewById(R.id.Back);
-        reserveDatabase = new reserveDatabase(this);
+        reserveDatabase = new ReserveDatabase(this);
         pass = findViewById(R.id.password);
         //Set date to be the same as database
         Cursor resdate = reserveDatabase.getDate(test.getName());
@@ -77,13 +77,6 @@ public class ReserveModifyActivity extends AppCompatActivity implements TimePick
                 DialogFragment timepicker = new TimePickerFragment();
                 timepicker.show(getSupportFragmentManager(),"Time picker");
 
-            }
-        });
-        //Back button to go back
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
             }
         });
         //Update button for new date and time for new value
@@ -160,4 +153,9 @@ public class ReserveModifyActivity extends AppCompatActivity implements TimePick
         pass.setText(getString(R.string.text_reserve_password) + password.getString(0));
     }
 
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
+    }
 }
