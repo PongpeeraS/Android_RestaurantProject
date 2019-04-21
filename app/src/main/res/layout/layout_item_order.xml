@@ -33,7 +33,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/odate"
+                android:id="@+id/oprice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|start"
@@ -41,7 +41,7 @@
                 android:text="(Order Date)" />
 
             <TextView
-                android:id="@+id/des"
+                android:id="@+id/odes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|start"

@@ -58,4 +58,11 @@
     <string name="text_updated">Updated</string>
     <string name="text_cancel_confirm">Are you sure to cancel this table?</string>
     <string name="text_reserve_password">Your password:</string>
+    <string name="label_amount">Amount :</string>
+    <string name="label_address">Adress :</string>
+    <string name="label_phone">Phone :</string>
+    <string name="btn_confirm">Confirm</string>
+    <string name="title_activity_order_view">Order</string>
+    <string name="recieve_button">Receive</string>
+    <string name="buy_butt">Buy</string>
 </resources>

@@ -55,4 +55,11 @@
     <string name="text_updated">แก้ไขแล้ว</string>
     <string name="text_cancel_confirm">ต้องการจะยกเลิกการจองโต๊ะนี้หรือไม่?</string>
     <string name="text_reserve_password">รหัสยืนยันของคุณ:</string>
+    <string name="label_amount">จำนวน :</string>
+    <string name="label_address">ที่อยู่ :</string>
+    <string name="label_phone">เบอร์โทรศัพท์ :</string>
+    <string name="btn_confirm">ยืนยัน</string>
+    <string name="title_activity_order_view">รายการสั่ง</string>
+    <string name="recieve_button">ได้รับสินค้าเรียบร้อย</string>
+    <string name="buy_butt">สั่งซื้อ</string>
 </resources>

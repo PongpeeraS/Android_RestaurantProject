@@ -23,7 +23,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="30dp"
             android:contentDescription="@string/text_imgdesc"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/logo" />
 
         <!-- Login Button -->
 
