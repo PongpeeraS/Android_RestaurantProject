@@ -48,7 +48,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull SearchViewHolder searchViewHolder,final int i) {
         searchViewHolder.name.setText(foods.get(i).getName());
-        searchViewHolder.price.setText(foods.get(i).getPrice()+" baht");
+        searchViewHolder.price.setText(foods.get(i).getPrice()+" "+context.getResources().getString(R.string.text_baht));
         searchViewHolder.des.setText(foods.get(i).getDes());
         /*
          * Set the image of each food by using ID of each food to indicate the rID of the resource image
